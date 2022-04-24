@@ -23,17 +23,45 @@ public class RuneFormula {
      */
     int base_RuneAmountToGetToLevelTwelve;
     int total_levels= 12;
-    int x = total_levels;
-    int total_runes = 0;
-    int y = total_runes;
-   public int car
-   if base_level = 7 
-           base_RuneAmountToGetToLevelTwelve = 775 + 793 + 811 + 829; 
-           else if 
+    public double base_RuneAmountToGetToLevelTwelve;
+    public double total_levels= 12;
+    public double total_runes;
+    public double runesForLevelUp;
+ 
+    public RuneFormula(int base_level)
+    {
+        switch(base_level){
+            case 1: 
+                base_RuneAmountToGetToLevelTwelve = 7496;
+                break;
+            case 5 :
+                base_RuneAmountToGetToLevelTwelve = 740 + 757 + 775 + 793 + 811 + 829;
+            case 6: 
+                base_RuneAmountToGetToLevelTwelve = 757 + 775 + 793 + 811 + 829;
+                break;
+            case 7: 
+                base_RuneAmountToGetToLevelTwelve = 775 + 793 + 811 + 829;
+                break;
+            case 8 :
+                base_RuneAmountToGetToLevelTwelve = 793 + 811 + 829;
+            case 9: 
+                base_RuneAmountToGetToLevelTwelve = 811 + 829;
+                break;
+            case 10: 
+                base_RuneAmountToGetToLevelTwelve = 829;
+                break;    
+        }
+            
            
-           else if 
-           else if
-           
-   total_runes = ((0.02x^3 + 3.06x^2 + 105.6x - 895)+ base_RuneAmountToGetToLevelTwelve)
-           
+        runesForLevelUp = ((0.02*(Math.pow(total_levels,3))) + (3.06*(Math.pow(total_levels, 2))) + (105.6*total_levels) - 895)+ base_RuneAmountToGetToLevelTwelve;
+    }  
+    public void totalRuneCalc(){
+        total_runes = 0;
+        for(int i = 1; i < level; i++){
+            int value = nextLevelCalc(i);
+            if (value > 0) {
+                    totalRunes += value;
+                    
+        }
+    }
 }
