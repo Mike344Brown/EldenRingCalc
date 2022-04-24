@@ -2,8 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.eldenringcalculator;
-
+package com.mycompany.giteldenring;
 /**
  *
  * @author chef
@@ -52,10 +51,11 @@ public class RuneFormula {
             
            
         runesForLevelUp = ((0.02*(Math.pow(total_levels,3))) + (3.06*(Math.pow(total_levels, 2))) + (105.6*total_levels) - 895)+ base_RuneAmountToGetToLevelTwelve;
+        
     }  
     public void totalRuneCalc(){
         total_runes = 0;
-        for(int i = 1; i < level; i++){
+        for(int i = 1; i < total_levels; i++){
             int value = nextLevelCalc(i);
             if (value > 0) {
                     totalRunes += value;
