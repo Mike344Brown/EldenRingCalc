@@ -9,9 +9,10 @@ package com.mycompany.giteldenring;
  *
  * @author craig
  */
-public class GitEldenRing {
+public class EldenRingCalculator {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       // TODO code application logic here
+        FrontEnd gui = new FrontEnd();
     }
 }
