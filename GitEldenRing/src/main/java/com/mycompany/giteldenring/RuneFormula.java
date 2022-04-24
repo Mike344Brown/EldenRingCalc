@@ -21,8 +21,6 @@ public class RuneFormula {
      * prophet = 7
      * samurai = 9 
      */
-    int base_RuneAmountToGetToLevelTwelve;
-    int total_levels= 12;
     public double base_RuneAmountToGetToLevelTwelve;
     public double total_levels= 12;
     public double total_runes;
