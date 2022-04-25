@@ -21,6 +21,7 @@ public class Classes {
     protected int intelligence = 8;
     protected int faith = 7;
     protected int arcane = 10;
+    protected int level = 0;
     
     
     public Classes(String name, int vigor, int mind, int endurance, int strength, int dexterity, int intelligence,

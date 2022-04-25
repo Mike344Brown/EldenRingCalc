@@ -4,11 +4,8 @@
  */
 package com.mycompany.giteldenring;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.*;
 /**
  *
@@ -28,6 +25,7 @@ public class FrontEnd implements ActionListener{
         JTextField levelWindow = new JTextField();
         JButton increase = new JButton("Increase");
         JButton decrease = new JButton("Decrease");
+        Font myFont = new Font("Courier", Font.BOLD, 20);
         
         //Build Arrays for character names.
         String [] names = {"Samurai", "Prophet", "Warrior", "Hero", "Bandit", "Astrologer", "Prisoner", "Confessor", "Wretch", "Vagabond"};
@@ -61,16 +59,19 @@ public class FrontEnd implements ActionListener{
         JTextField levelArcane = new JTextField(2);
 
         //Create instance variables for the radio buttons, each one will select a stat to level up
-        JRadioButton vigorRadio = new JRadioButton();
-        JRadioButton mindRadio = new JRadioButton();
-        JRadioButton enduranceRadio = new JRadioButton();
-        JRadioButton strengthRadio = new JRadioButton();
-        JRadioButton dexterityRadio = new JRadioButton();
-        JRadioButton intelligenceRadio = new JRadioButton();
-        JRadioButton faithRadio = new JRadioButton();
-        JRadioButton arcaneRadio = new JRadioButton();
+        JRadioButton vigorRadio = new JRadioButton("Vigor");
+        JRadioButton mindRadio = new JRadioButton("Mind");
+        JRadioButton enduranceRadio = new JRadioButton("Endurance");
+        JRadioButton strengthRadio = new JRadioButton("Strength");
+        JRadioButton dexterityRadio = new JRadioButton("Dexterity");
+        JRadioButton intelligenceRadio = new JRadioButton("Intelligence");
+        JRadioButton faithRadio = new JRadioButton("Faith");
+        JRadioButton arcaneRadio = new JRadioButton("Arcane");
         
-        
+        //Create radio button group *** Marvin***
+        ButtonGroup buttonGroup = new ButtonGroup();
+        ButtonGroup textGroup = new ButtonGroup();
+               
         //Create a panel to hold all the elements of the UI inside the frame horizontally.
         JPanel container = new JPanel();
         
@@ -117,14 +118,14 @@ public class FrontEnd implements ActionListener{
             vigorStatContainer.setLayout(new BoxLayout(vigorStatContainer,BoxLayout.LINE_AXIS));
             vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
             vigorStatContainer.add(Box.createHorizontalGlue());
-            vigorStatContainer.add(vigorStatLabel);
+//            vigorStatContainer.add(vigorStatLabel);
             vigorStatContainer.add(levelVigor);
             vigorStatContainer.add(vigorRadio);
             
             //Mind stat elements panels:
             mindStatContainer.setLayout(new BoxLayout(mindStatContainer,BoxLayout.LINE_AXIS));
             mindStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            mindStatContainer.add(mindStatLabel);
+//            mindStatContainer.add(mindStatLabel);
             mindStatContainer.add(Box.createHorizontalStrut(80));
             mindStatContainer.add(levelMind);
             mindStatContainer.add(mindRadio);
@@ -132,7 +133,7 @@ public class FrontEnd implements ActionListener{
             //Endurance stat elements panels:
             enduranceStatContainer.setLayout(new BoxLayout(enduranceStatContainer,BoxLayout.LINE_AXIS));
             enduranceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            enduranceStatContainer.add(enduranceStatLabel);
+//            enduranceStatContainer.add(enduranceStatLabel);
             enduranceStatContainer.add(Box.createHorizontalStrut(30));
             enduranceStatContainer.add(levelEndurance);
             enduranceStatContainer.add(enduranceRadio);
@@ -140,7 +141,7 @@ public class FrontEnd implements ActionListener{
             //Strength stat elements panels:
             strengthStatContainer.setLayout(new BoxLayout(strengthStatContainer,BoxLayout.LINE_AXIS));
             strengthStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            strengthStatContainer.add(strengthStatLabel);
+//            strengthStatContainer.add(strengthStatLabel);
             strengthStatContainer.add(Box.createHorizontalStrut(20));
             strengthStatContainer.add(levelStrength);
             strengthStatContainer.add(strengthRadio);
@@ -148,7 +149,7 @@ public class FrontEnd implements ActionListener{
             //Dexterity stat elements panels:
             dexterityStatContainer.setLayout(new BoxLayout(dexterityStatContainer,BoxLayout.LINE_AXIS));
             dexterityStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            dexterityStatContainer.add(dexterityStatLabel);
+//            dexterityStatContainer.add(dexterityStatLabel);
             dexterityStatContainer.add(Box.createHorizontalStrut(20));
             dexterityStatContainer.add(levelDexterity);
             dexterityStatContainer.add(dexterityRadio);
@@ -156,7 +157,7 @@ public class FrontEnd implements ActionListener{
             //Intelligence stat elements panels:
             intelligenceStatContainer.setLayout(new BoxLayout(intelligenceStatContainer,BoxLayout.LINE_AXIS));
             intelligenceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            intelligenceStatContainer.add(intelligenceStatLabel);
+//            intelligenceStatContainer.add(intelligenceStatLabel);
             intelligenceStatContainer.add(Box.createHorizontalStrut(20));
             intelligenceStatContainer.add(levelIntelligence);
             intelligenceStatContainer.add(intelligenceRadio);
@@ -164,7 +165,7 @@ public class FrontEnd implements ActionListener{
             //Faith stat elements panels:
             faithStatContainer.setLayout(new BoxLayout(faithStatContainer,BoxLayout.LINE_AXIS));
             faithStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            faithStatContainer.add(faithStatLabel);
+//            faithStatContainer.add(faithStatLabel);
             faithStatContainer.add(Box.createHorizontalStrut(20));
             faithStatContainer.add(levelFaith);
             faithStatContainer.add(faithRadio);
@@ -172,7 +173,7 @@ public class FrontEnd implements ActionListener{
             //Arcane stat elements panels:
             arcaneStatContainer.setLayout(new BoxLayout(arcaneStatContainer,BoxLayout.LINE_AXIS));
             arcaneStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            arcaneStatContainer.add(arcaneStatLabel);
+//            arcaneStatContainer.add(arcaneStatLabel);
             arcaneStatContainer.add(Box.createHorizontalStrut(20));
             arcaneStatContainer.add(levelArcane);
             arcaneStatContainer.add(arcaneRadio);
@@ -200,6 +201,53 @@ public class FrontEnd implements ActionListener{
             radioButtonContainer.add(arcaneStatContainer);
             radioButtonContainer.add(Box.createVerticalStrut(10));
             
+            //Add action commands to radio buttons ***Marvin***
+            vigorRadio.setActionCommand("Vigor");
+//            vigorRadio.setSelected(true);
+            mindRadio.setActionCommand("Mind");
+            enduranceRadio.setActionCommand("Endurance");
+            strengthRadio.setActionCommand("Strength");
+            dexterityRadio.setActionCommand("Dexterity");
+            intelligenceRadio.setActionCommand("Intelligence");
+            faithRadio.setActionCommand("Faith");
+            arcaneRadio.setActionCommand("Arcane");
+            
+            //Add action commands to textfields ***Marvin***
+            levelVigor.setActionCommand("VigorText");
+            
+            //Add listeners to buttons ***Marvin**
+            increase.addActionListener(this);
+            decrease.addActionListener(this);
+            vigorRadio.addActionListener(this);
+            mindRadio.addActionListener(this);
+            enduranceRadio.addActionListener(this);
+            strengthRadio.addActionListener(this);
+            dexterityRadio.addActionListener(this);
+            intelligenceRadio.addActionListener(this);
+            faithRadio.addActionListener(this);
+            arcaneRadio.addActionListener(this);
+            
+            //Add Radio Button font ***Marvin***
+            vigorRadio.setFont(myFont);
+            mindRadio.setFont(myFont);
+            enduranceRadio.setFont(myFont);
+            strengthRadio.setFont(myFont);
+            dexterityRadio.setFont(myFont);
+            intelligenceRadio.setFont(myFont);
+            faithRadio.setFont(myFont);
+            arcaneRadio.setFont(myFont);
+            
+            //Add buttons to button group ***Marvin***
+            buttonGroup.add(vigorRadio);
+            buttonGroup.add(mindRadio);
+            buttonGroup.add(enduranceRadio);
+            buttonGroup.add(strengthRadio);
+            buttonGroup.add(dexterityRadio);
+            buttonGroup.add(intelligenceRadio);
+            buttonGroup.add(faithRadio);
+            buttonGroup.add(arcaneRadio);
+            
+            
             //Add panel containers to the frame
             container.add(inc_dec_panel_left, BorderLayout.WEST);
             container.add(inc_dec_panel_center, BorderLayout.CENTER);
@@ -207,7 +255,7 @@ public class FrontEnd implements ActionListener{
             
             container.add(radioButtonContainer, BorderLayout.EAST);
             
-            
+          
             //Add container to frame
             layer_1_container.add(container);
             layer_1_container.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -231,19 +279,63 @@ public class FrontEnd implements ActionListener{
             System.out.print("The Hero's Arcane stat is " + Hero.arcane);
             
             
+            
         }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-     
+        String action = e.getActionCommand();
+        System.out.println("Here is the action = " + action);
+        String selectedRadioButton = buttonGroup.getSelection().getActionCommand();
+                chooseTextField();
+        switch (action) {
+            case "Vigor":
+                levelVigor.setEditable(true);
+                break;
+            case "Mind":
+                levelMind.setEditable(true);
+                break;
+            case "Endurance":
+                levelEndurance.setEditable(true);
+                break;
+            case "Strength":
+                levelStrength.setEditable(true);
+                break;
+            case "Dexterity":
+                levelDexterity.setEditable(true);
+                break;
+            case "Intelligence":
+                levelIntelligence.setEditable(true);
+                break;
+            case "Faith":
+                levelFaith.setEditable(true);
+                break;
+            case "Arcane":
+                levelArcane.setEditable(true);
+                break;
+        }
+        
     }
     
-    public int selectClassComboBox(String classSelected )
-    {
+    //Handles which textlields are grayed out
+    public void chooseTextField() {
+       levelVigor.setEditable(false);
+       levelMind.setEditable(false);
+       levelEndurance.setEditable(false);
+       levelStrength.setEditable(false);
+       levelDexterity.setEditable(false);
+       levelIntelligence.setEditable(false);
+       levelFaith.setEditable(false);
+       levelArcane.setEditable(false);
+       levelVigor.setText("99");
+    
+    } 
+    
+    
+    public int selectClassComboBox(String classSelected ) {
     
     return 0;
-    }   
+    } 
     
-    
+  
 }
