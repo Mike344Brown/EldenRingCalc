@@ -21,6 +21,7 @@ public class Classes {
     protected int intelligence = 8;
     protected int faith = 7;
     protected int arcane = 10;
+    protected int level = 0;
     private int banana;
     private int natestheman;
     
