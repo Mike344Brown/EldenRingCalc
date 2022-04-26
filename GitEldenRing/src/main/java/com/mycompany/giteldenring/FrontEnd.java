@@ -91,6 +91,13 @@ public class FrontEnd implements ActionListener{
         JPanel faithStatContainer = new JPanel();
         JPanel arcaneStatContainer = new JPanel();
         
+        
+        //level int
+        public int levelInt = 12;
+        
+        //Instantiate new rune formula object
+        RuneFormula formula = new RuneFormula(levelInt);
+        
         //Constructor for boxLayout button panel
         public FrontEnd(){
             
@@ -215,17 +222,19 @@ public class FrontEnd implements ActionListener{
             //Add action commands to textfields ***Marvin***
             levelVigor.setActionCommand("VigorText");
             
-            //Add listeners to buttons ***Marvin**
-            increase.addActionListener(this);
-            decrease.addActionListener(this);
-            vigorRadio.addActionListener(this);
-            mindRadio.addActionListener(this);
-            enduranceRadio.addActionListener(this);
-            strengthRadio.addActionListener(this);
-            dexterityRadio.addActionListener(this);
-            intelligenceRadio.addActionListener(this);
-            faithRadio.addActionListener(this);
-            arcaneRadio.addActionListener(this);
+            //Set text fields uneditable
+            levelVigor.setEditable(false);
+            levelMind.setEditable(false);
+            levelEndurance.setEditable(false);
+            levelStrength.setEditable(false);
+            levelDexterity.setEditable(false);
+            levelIntelligence.setEditable(false);
+            levelFaith.setEditable(false);
+            levelArcane.setEditable(false);
+            
+            
+            
+            
             
             //Add Radio Button font ***Marvin***
             vigorRadio.setFont(myFont);
@@ -276,128 +285,237 @@ public class FrontEnd implements ActionListener{
             Classes Wretch =  new Classes("Wretch", 10, 10, 10, 10, 10, 10, 10, 10);
             Classes Vagabond =  new Classes("Vagabond", 15, 10, 11, 14, 13, 9, 9, 7);
             
+            //Set initial values
+            levelVigor.setText(String.valueOf(Samurai.vigor));
+            levelMind.setText(String.valueOf(Samurai.mind));
+            levelEndurance.setText(String.valueOf(Samurai.endurance));
+            levelStrength.setText(String.valueOf(Samurai.strength));
+            levelDexterity.setText(String.valueOf(Samurai.dexterity));
+            levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+            levelFaith.setText(String.valueOf(Samurai.faith));
+            levelArcane.setText(String.valueOf(Samurai.arcane));
+            
+            
             //Add ComboBox Listener
-            classes.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) 
-                {
-                    String comboBoxSelection = classes.getSelectedItem().toString();
-                    switch (comboBoxSelection) {
-            case "Samurai":
-                levelVigor.setText(String.valueOf(Samurai.vigor));
-                levelMind.setText(String.valueOf(Samurai.mind));
-                levelEndurance.setText(String.valueOf(Samurai.endurance));
-                levelStrength.setText(String.valueOf(Samurai.strength));
-                levelDexterity.setText(String.valueOf(Samurai.dexterity));
-                levelIntelligence.setText(String.valueOf(Samurai.intelligence));
-                levelFaith.setText(String.valueOf(Samurai.faith));
-                levelArcane.setText(String.valueOf(Samurai.arcane));
-                break;
-            case "Prophet":
-                levelVigor.setText(String.valueOf(Prophet.vigor));
-                levelMind.setText(String.valueOf(Prophet.mind));
-                levelEndurance.setText(String.valueOf(Prophet.endurance));
-                levelStrength.setText(String.valueOf(Prophet.strength));
-                levelDexterity.setText(String.valueOf(Prophet.dexterity));
-                levelIntelligence.setText(String.valueOf(Prophet.intelligence));
-                levelFaith.setText(String.valueOf(Prophet.faith));
-                levelArcane.setText(String.valueOf(Prophet.arcane));
-                break;
-            case "Warrior":
-                levelVigor.setText(String.valueOf(Warrior.vigor));
-                levelMind.setText(String.valueOf(Warrior.mind));
-                levelEndurance.setText(String.valueOf(Warrior.endurance));
-                levelStrength.setText(String.valueOf(Warrior.strength));
-                levelDexterity.setText(String.valueOf(Warrior.dexterity));
-                levelIntelligence.setText(String.valueOf(Warrior.intelligence));
-                levelFaith.setText(String.valueOf(Warrior.faith));
-                levelArcane.setText(String.valueOf(Warrior.arcane));
-                break;
-            case "Hero":
-                levelVigor.setText(String.valueOf(Hero.vigor));
-                levelMind.setText(String.valueOf(Hero.mind));
-                levelEndurance.setText(String.valueOf(Hero.endurance));
-                levelStrength.setText(String.valueOf(Hero.strength));
-                levelDexterity.setText(String.valueOf(Hero.dexterity));
-                levelIntelligence.setText(String.valueOf(Hero.intelligence));
-                levelFaith.setText(String.valueOf(Hero.faith));
-                levelArcane.setText(String.valueOf(Hero.arcane));
-                break;
-            case "Bandit":
-                levelVigor.setText(String.valueOf(Bandit.vigor));
-                levelMind.setText(String.valueOf(Bandit.mind));
-                levelEndurance.setText(String.valueOf(Bandit.endurance));
-                levelStrength.setText(String.valueOf(Bandit.strength));
-                levelDexterity.setText(String.valueOf(Bandit.dexterity));
-                levelIntelligence.setText(String.valueOf(Bandit.intelligence));
-                levelFaith.setText(String.valueOf(Bandit.faith));
-                levelArcane.setText(String.valueOf(Bandit.arcane));
-                break;
-            case "Astrologer":
-                levelVigor.setText(String.valueOf(Astrologer.vigor));
-                levelMind.setText(String.valueOf(Astrologer.mind));
-                levelEndurance.setText(String.valueOf(Astrologer.endurance));
-                levelStrength.setText(String.valueOf(Astrologer.strength));
-                levelDexterity.setText(String.valueOf(Astrologer.dexterity));
-                levelIntelligence.setText(String.valueOf(Astrologer.intelligence));
-                levelFaith.setText(String.valueOf(Astrologer.faith));
-                levelArcane.setText(String.valueOf(Astrologer.arcane));
-                break;
-            case "Prisoner":
-                levelVigor.setText(String.valueOf(Prisoner.vigor));
-                levelMind.setText(String.valueOf(Prisoner.mind));
-                levelEndurance.setText(String.valueOf(Prisoner.endurance));
-                levelStrength.setText(String.valueOf(Prisoner.strength));
-                levelDexterity.setText(String.valueOf(Prisoner.dexterity));
-                levelIntelligence.setText(String.valueOf(Prisoner.intelligence));
-                levelFaith.setText(String.valueOf(Prisoner.faith));
-                levelArcane.setText(String.valueOf(Prisoner.arcane));
-                break;
-            case "Confessor":
-                levelVigor.setText(String.valueOf(Confessor.vigor));
-                levelMind.setText(String.valueOf(Confessor.mind));
-                levelEndurance.setText(String.valueOf(Confessor.endurance));
-                levelStrength.setText(String.valueOf(Confessor.strength));
-                levelDexterity.setText(String.valueOf(Confessor.dexterity));
-                levelIntelligence.setText(String.valueOf(Confessor.intelligence));
-                levelFaith.setText(String.valueOf(Confessor.faith));
-                levelArcane.setText(String.valueOf(Confessor.arcane));
-                break;
-            case "Wretch":
-                levelVigor.setText(String.valueOf(Wretch.vigor));
-                levelMind.setText(String.valueOf(Wretch.mind));
-                levelEndurance.setText(String.valueOf(Wretch.endurance));
-                levelStrength.setText(String.valueOf(Wretch.strength));
-                levelDexterity.setText(String.valueOf(Wretch.dexterity));
-                levelIntelligence.setText(String.valueOf(Wretch.intelligence));
-                levelFaith.setText(String.valueOf(Wretch.faith));
-                levelArcane.setText(String.valueOf(Wretch.arcane));
-                break;
-            case "Vagabond":
-                levelVigor.setText(String.valueOf(Vagabond.vigor));
-                levelMind.setText(String.valueOf(Vagabond.mind));
-                levelEndurance.setText(String.valueOf(Vagabond.endurance));
-                levelStrength.setText(String.valueOf(Vagabond.strength));
-                levelDexterity.setText(String.valueOf(Vagabond.dexterity));
-                levelIntelligence.setText(String.valueOf(Vagabond.intelligence));
-                levelFaith.setText(String.valueOf(Vagabond.faith));
-                levelArcane.setText(String.valueOf(Vagabond.arcane));
-                break;
-                    }
-                }
+            classes.addActionListener((ActionEvent e) -> {
+                //This line of code grabs the combo box selection to pass to the switch statement
+                String comboBoxSelection = classes.getSelectedItem().toString();
                 
+                //This Switch statement passes all of the stat values into the text selection windows    
+                switch (comboBoxSelection) {
+                    case "Samurai":
+                        levelVigor.setText(String.valueOf(Samurai.vigor));
+                        levelMind.setText(String.valueOf(Samurai.mind));
+                        levelEndurance.setText(String.valueOf(Samurai.endurance));
+                        levelStrength.setText(String.valueOf(Samurai.strength));
+                        levelDexterity.setText(String.valueOf(Samurai.dexterity));
+                        levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+                        levelFaith.setText(String.valueOf(Samurai.faith));
+                        levelArcane.setText(String.valueOf(Samurai.arcane));
+                        break;
+                    case "Prophet":
+                        levelVigor.setText(String.valueOf(Prophet.vigor));
+                        levelMind.setText(String.valueOf(Prophet.mind));
+                        levelEndurance.setText(String.valueOf(Prophet.endurance));
+                        levelStrength.setText(String.valueOf(Prophet.strength));
+                        levelDexterity.setText(String.valueOf(Prophet.dexterity));
+                        levelIntelligence.setText(String.valueOf(Prophet.intelligence));
+                        levelFaith.setText(String.valueOf(Prophet.faith));
+                        levelArcane.setText(String.valueOf(Prophet.arcane));
+                        break;
+                    case "Warrior":
+                        levelVigor.setText(String.valueOf(Warrior.vigor));
+                        levelMind.setText(String.valueOf(Warrior.mind));
+                        levelEndurance.setText(String.valueOf(Warrior.endurance));
+                        levelStrength.setText(String.valueOf(Warrior.strength));
+                        levelDexterity.setText(String.valueOf(Warrior.dexterity));
+                        levelIntelligence.setText(String.valueOf(Warrior.intelligence));
+                        levelFaith.setText(String.valueOf(Warrior.faith));
+                        levelArcane.setText(String.valueOf(Warrior.arcane));
+                        break;
+                    case "Hero":
+                        levelVigor.setText(String.valueOf(Hero.vigor));
+                        levelMind.setText(String.valueOf(Hero.mind));
+                        levelEndurance.setText(String.valueOf(Hero.endurance));
+                        levelStrength.setText(String.valueOf(Hero.strength));
+                        levelDexterity.setText(String.valueOf(Hero.dexterity));
+                        levelIntelligence.setText(String.valueOf(Hero.intelligence));
+                        levelFaith.setText(String.valueOf(Hero.faith));
+                        levelArcane.setText(String.valueOf(Hero.arcane));
+                        break;
+                    case "Bandit":
+                        levelVigor.setText(String.valueOf(Bandit.vigor));
+                        levelMind.setText(String.valueOf(Bandit.mind));
+                        levelEndurance.setText(String.valueOf(Bandit.endurance));
+                        levelStrength.setText(String.valueOf(Bandit.strength));
+                        levelDexterity.setText(String.valueOf(Bandit.dexterity));
+                        levelIntelligence.setText(String.valueOf(Bandit.intelligence));
+                        levelFaith.setText(String.valueOf(Bandit.faith));
+                        levelArcane.setText(String.valueOf(Bandit.arcane));
+                        break;
+                    case "Astrologer":
+                        levelVigor.setText(String.valueOf(Astrologer.vigor));
+                        levelMind.setText(String.valueOf(Astrologer.mind));
+                        levelEndurance.setText(String.valueOf(Astrologer.endurance));
+                        levelStrength.setText(String.valueOf(Astrologer.strength));
+                        levelDexterity.setText(String.valueOf(Astrologer.dexterity));
+                        levelIntelligence.setText(String.valueOf(Astrologer.intelligence));
+                        levelFaith.setText(String.valueOf(Astrologer.faith));
+                        levelArcane.setText(String.valueOf(Astrologer.arcane));
+                        break;
+                    case "Prisoner":
+                        levelVigor.setText(String.valueOf(Prisoner.vigor));
+                        levelMind.setText(String.valueOf(Prisoner.mind));
+                        levelEndurance.setText(String.valueOf(Prisoner.endurance));
+                        levelStrength.setText(String.valueOf(Prisoner.strength));
+                        levelDexterity.setText(String.valueOf(Prisoner.dexterity));
+                        levelIntelligence.setText(String.valueOf(Prisoner.intelligence));
+                        levelFaith.setText(String.valueOf(Prisoner.faith));
+                        levelArcane.setText(String.valueOf(Prisoner.arcane));
+                        break;
+                    case "Confessor":
+                        levelVigor.setText(String.valueOf(Confessor.vigor));
+                        levelMind.setText(String.valueOf(Confessor.mind));
+                        levelEndurance.setText(String.valueOf(Confessor.endurance));
+                        levelStrength.setText(String.valueOf(Confessor.strength));
+                        levelDexterity.setText(String.valueOf(Confessor.dexterity));
+                        levelIntelligence.setText(String.valueOf(Confessor.intelligence));
+                        levelFaith.setText(String.valueOf(Confessor.faith));
+                        levelArcane.setText(String.valueOf(Confessor.arcane));
+                        break;
+                    case "Wretch":
+                        levelVigor.setText(String.valueOf(Wretch.vigor));
+                        levelMind.setText(String.valueOf(Wretch.mind));
+                        levelEndurance.setText(String.valueOf(Wretch.endurance));
+                        levelStrength.setText(String.valueOf(Wretch.strength));
+                        levelDexterity.setText(String.valueOf(Wretch.dexterity));
+                        levelIntelligence.setText(String.valueOf(Wretch.intelligence));
+                        levelFaith.setText(String.valueOf(Wretch.faith));
+                        levelArcane.setText(String.valueOf(Wretch.arcane));
+                        break;
+                    case "Vagabond":
+                        levelVigor.setText(String.valueOf(Vagabond.vigor));
+                        levelMind.setText(String.valueOf(Vagabond.mind));
+                        levelEndurance.setText(String.valueOf(Vagabond.endurance));
+                        levelStrength.setText(String.valueOf(Vagabond.strength));
+                        levelDexterity.setText(String.valueOf(Vagabond.dexterity));
+                        levelIntelligence.setText(String.valueOf(Vagabond.intelligence));
+                        levelFaith.setText(String.valueOf(Vagabond.faith));
+                        levelArcane.setText(String.valueOf(Vagabond.arcane));
+                        break;
+                }
             });
             
+            //levelWindow Action
+            levelWindow.setText(String.valueOf(12));
+            //Add Button Press Event Listener
+            increase.addActionListener((ActionEvent e) -> {
+            levelInt++;
+            levelWindow.setText(String.valueOf(levelInt));
+            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+            Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
+            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
+            System.out.println("Increase Button Pressed");
+            if(vigorRadio.isSelected())
+                    {
+                        Samurai.vigor++;
+                        levelVigor.setText(String.valueOf(Samurai.vigor));
+                        
+                    }
+            else if(mindRadio.isSelected())
+                    {
+                        Samurai.mind++;
+                        levelMind.setText(String.valueOf(Samurai.mind));
+                    }
+            else if(enduranceRadio.isSelected())
+                    {
+                        Samurai.endurance++;
+                        levelEndurance.setText(String.valueOf(Samurai.endurance));
+                    }
+            else if(strengthRadio.isSelected())
+                    {
+                        Samurai.strength++;
+                        levelStrength.setText(String.valueOf(Samurai.strength));
+                    }
+            else if(dexterityRadio.isSelected())
+                    {
+                        Samurai.dexterity++;
+                        levelDexterity.setText(String.valueOf(Samurai.dexterity));
+                    }
+            else if(intelligenceRadio.isSelected())
+                    {
+                        Samurai.intelligence++;
+                        levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+                    }
+            else if(faithRadio.isSelected())
+                    {
+                        Samurai.faith++;
+                        levelFaith.setText(String.valueOf(Samurai.faith));
+                    }
+            else if(arcaneRadio.isSelected())
+                    {
+                        Samurai.arcane++;
+                        levelArcane.setText(String.valueOf(Samurai.arcane));
+                    }
             
+            });
             
-            
+            decrease.addActionListener((ActionEvent e) -> {
+            levelInt--;
+            levelWindow.setText(String.valueOf(levelInt));
+            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+            Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
+            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
+            System.out.println("Decrease Button Pressed");
+            if(vigorRadio.isSelected())
+                    {
+                        Samurai.vigor--;
+                        levelVigor.setText(String.valueOf(Samurai.vigor));
+                    }
+            else if(mindRadio.isSelected())
+                    {
+                        Samurai.mind--;
+                        levelMind.setText(String.valueOf(Samurai.mind));
+                    }
+            else if(enduranceRadio.isSelected())
+                    {
+                        Samurai.endurance--;
+                        levelEndurance.setText(String.valueOf(Samurai.endurance));
+                    }
+            else if(strengthRadio.isSelected())
+                    {
+                        Samurai.strength--;
+                        levelStrength.setText(String.valueOf(Samurai.strength));
+                    }
+            else if(dexterityRadio.isSelected())
+                    {
+                        Samurai.dexterity--;
+                        levelDexterity.setText(String.valueOf(Samurai.dexterity));
+                    }
+            else if(intelligenceRadio.isSelected())
+                    {
+                        Samurai.intelligence--;
+                        levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+                    }
+            else if(faithRadio.isSelected())
+                    {
+                        Samurai.faith--;
+                        levelFaith.setText(String.valueOf(Samurai.faith));
+                    }
+            else if(arcaneRadio.isSelected())
+                    {
+                        Samurai.arcane--;
+                        levelArcane.setText(String.valueOf(Samurai.arcane));
+                    }
+            });
+      
         }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
         System.out.println("Here is the action = " + action);
-        String selectedRadioButton = buttonGroup.getSelection().getActionCommand();
+        
                 chooseTextField();
         switch (action) {
             case "Vigor":
@@ -441,15 +559,12 @@ public class FrontEnd implements ActionListener{
        levelIntelligence.setEditable(false);
        levelFaith.setEditable(false);
        levelArcane.setEditable(false);
-       levelVigor.setText("99");
+       
     
     } 
     
     
-    public int selectClassComboBox(String classSelected ) {
     
-    return 0;
-    } 
     
   
 }
