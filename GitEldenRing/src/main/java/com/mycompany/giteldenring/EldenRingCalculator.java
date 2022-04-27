@@ -14,5 +14,6 @@ public class EldenRingCalculator {
     public static void main(String[] args) {
        // TODO code application logic here
         FrontEnd gui = new FrontEnd();
+       //test
     }
 }
