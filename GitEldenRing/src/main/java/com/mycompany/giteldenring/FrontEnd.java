@@ -6,6 +6,7 @@
 package com.mycompany.giteldenring;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.*;
 import javax.swing.*;
 /**
@@ -232,8 +233,8 @@ public class FrontEnd implements ActionListener{
             levelIntelligence.setEditable(false);
             levelFaith.setEditable(false);
             levelArcane.setEditable(false);
-            
-            
+            levelWindow.setEditable(false);
+            runeTotalOutputWindow.setEditable(false);
             
             
             
@@ -271,9 +272,10 @@ public class FrontEnd implements ActionListener{
             layer_1_container.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             
             
-            layer_1_container.pack();
+            layer_1_container.setSize(640,480);
             layer_1_container.setVisible(true);
             
+        
             //Build Classes
             Classes Samurai =  new Classes("Samurai", 12, 11, 13, 12, 15, 9, 8, 8);
             Classes Prophet =  new Classes("Prophet", 10, 14, 8, 11, 10, 7, 16, 10);
@@ -295,6 +297,7 @@ public class FrontEnd implements ActionListener{
                 //This Switch statement passes all of the stat values into the text selection windows    
                 switch (comboBoxSelection) {
                     case "Samurai":
+                        
                         levelVigor.setText(String.valueOf(Samurai.vigor));
                         levelMind.setText(String.valueOf(Samurai.mind));
                         levelEndurance.setText(String.valueOf(Samurai.endurance));
@@ -611,7 +614,7 @@ public class FrontEnd implements ActionListener{
                                     
                                 }
             }});
-      
+               
         }
     
     @Override
@@ -664,7 +667,7 @@ public class FrontEnd implements ActionListener{
        levelArcane.setEditable(false);
        
     
-    } 
+   } 
     
     
     
