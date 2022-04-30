@@ -461,61 +461,65 @@ public class FrontEnd implements ActionListener{
             
             });
             
-            decrease.addActionListener((ActionEvent e) -> {
-            levelInt--;
-            levelWindow.setText(String.valueOf(levelInt));
-            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-            Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
-            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
-            System.out.println("Decrease Button Pressed");
-            if(vigorRadio.isSelected())
-                    {
-                        if (levelInt == 12)
-                            {
-                              JFrame f;
-                              f =new JFrame();
-                              JOptionPane.showMessageDialog(f,"Level formula only works for 12, Level has been decreased.","Alert",JOptionPane.WARNING_MESSAGE);
+            decrease.addActionListener((ActionEvent e) ->
+            {
+                if (levelInt == 12)
+                   {
+                        JFrame f;
+                        f =new JFrame();
+                        JOptionPane.showMessageDialog(f,"Level formula only works for 12, Level has not been decreased.","Alert",JOptionPane.WARNING_MESSAGE);
                                 
-                            }
-                        Samurai.vigor--;
-                        levelVigor.setText(String.valueOf(Samurai.vigor));
-                    }
-            else if(mindRadio.isSelected())
+                   }
+                    else
                     {
-                        Samurai.mind--;
-                        levelMind.setText(String.valueOf(Samurai.mind));
-                    }
-            else if(enduranceRadio.isSelected())
-                    {
-                        Samurai.endurance--;
-                        levelEndurance.setText(String.valueOf(Samurai.endurance));
-                    }
-            else if(strengthRadio.isSelected())
-                    {
-                        Samurai.strength--;
-                        levelStrength.setText(String.valueOf(Samurai.strength));
-                    }
-            else if(dexterityRadio.isSelected())
-                    {
-                        Samurai.dexterity--;
-                        levelDexterity.setText(String.valueOf(Samurai.dexterity));
-                    }
-            else if(intelligenceRadio.isSelected())
-                    {
-                        Samurai.intelligence--;
-                        levelIntelligence.setText(String.valueOf(Samurai.intelligence));
-                    }
-            else if(faithRadio.isSelected())
-                    {
-                        Samurai.faith--;
-                        levelFaith.setText(String.valueOf(Samurai.faith));
-                    }
-            else if(arcaneRadio.isSelected())
-                    {
-                        Samurai.arcane--;
-                        levelArcane.setText(String.valueOf(Samurai.arcane));
-                    }
-            });
+                        levelInt--;
+                        levelWindow.setText(String.valueOf(levelInt));
+                        rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                        Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
+                        runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
+                        System.out.println("Decrease Button Pressed");
+                        if(vigorRadio.isSelected())
+                                {
+
+                                    Samurai.vigor--;
+                                    levelVigor.setText(String.valueOf(Samurai.vigor));
+                                }
+                        else if(mindRadio.isSelected())
+                                {
+                                    Samurai.mind--;
+                                    levelMind.setText(String.valueOf(Samurai.mind));
+                                }
+                        else if(enduranceRadio.isSelected())
+                                {
+                                    Samurai.endurance--;
+                                    levelEndurance.setText(String.valueOf(Samurai.endurance));
+                                }
+                        else if(strengthRadio.isSelected())
+                                {
+                                    Samurai.strength--;
+                                    levelStrength.setText(String.valueOf(Samurai.strength));
+                                }
+                        else if(dexterityRadio.isSelected())
+                                {
+                                    Samurai.dexterity--;
+                                    levelDexterity.setText(String.valueOf(Samurai.dexterity));
+                                }
+                        else if(intelligenceRadio.isSelected())
+                                {
+                                    Samurai.intelligence--;
+                                    levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+                                }
+                        else if(faithRadio.isSelected())
+                                {
+                                    Samurai.faith--;
+                                    levelFaith.setText(String.valueOf(Samurai.faith));
+                                }
+                        else if(arcaneRadio.isSelected())
+                                {
+                                    Samurai.arcane--;
+                                    levelArcane.setText(String.valueOf(Samurai.arcane));
+                                }
+            }});
       
         }
     
