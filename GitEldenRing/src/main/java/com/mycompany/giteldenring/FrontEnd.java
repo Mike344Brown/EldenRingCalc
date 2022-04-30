@@ -125,8 +125,10 @@ public class FrontEnd implements ActionListener{
             vigorStatContainer.setLayout(new BoxLayout(vigorStatContainer,BoxLayout.LINE_AXIS));
             vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
             vigorStatContainer.add(Box.createHorizontalGlue());
-//            vigorStatContainer.add(vigorStatLabel);
+//          vigorStatContainer.add(vigorStatLabel);
             vigorStatContainer.add(levelVigor);
+            vigorStatContainer.add(Box.createHorizontalStrut(10));
+            
             vigorStatContainer.add(vigorRadio);
             
             //Mind stat elements panels:
@@ -270,7 +272,7 @@ public class FrontEnd implements ActionListener{
             layer_1_container.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             
             
-            layer_1_container.pack();
+            layer_1_container.setSize(640, 480);
             layer_1_container.setVisible(true);
             
             //Build Classes
