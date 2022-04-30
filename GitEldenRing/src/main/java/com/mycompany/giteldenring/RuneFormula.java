@@ -54,11 +54,11 @@ public class RuneFormula {
         }  
     public double nextLevelCalc(double current_level){
             runesForLevelUp = ((0.02*(Math.pow(current_level,3))) + (3.06*(Math.pow(current_level, 2)))
-                    + (105.6*total_levels) - 895);
+                    + (105.6*current_level) - 895);
             return runesForLevelUp;
     }
     public double totalRuneCalc(){
-            total_runes = 0;
+           
             for(double i = 1; i < total_levels; i++){
                 double currentRuneValue = nextLevelCalc(i);
                 if (currentRuneValue > 1) {
