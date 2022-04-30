@@ -6,7 +6,7 @@ package com.mycompany.giteldenring;
 import java.lang.Math;
 /**
  *
- * @author chef
+ * Entire formula class created by **Nathan**
  */
 public class RuneFormula {
         /**
