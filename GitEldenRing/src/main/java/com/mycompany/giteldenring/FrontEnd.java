@@ -286,17 +286,7 @@ public class FrontEnd implements ActionListener{
             Classes Wretch =  new Classes("Wretch", 10, 10, 10, 10, 10, 10, 10, 10);
             Classes Vagabond =  new Classes("Vagabond", 15, 10, 11, 14, 13, 9, 9, 7);
             
-            //Set initial values
-            levelVigor.setText(String.valueOf(Samurai.vigor));
-            levelMind.setText(String.valueOf(Samurai.mind));
-            levelEndurance.setText(String.valueOf(Samurai.endurance));
-            levelStrength.setText(String.valueOf(Samurai.strength));
-            levelDexterity.setText(String.valueOf(Samurai.dexterity));
-            levelIntelligence.setText(String.valueOf(Samurai.intelligence));
-            levelFaith.setText(String.valueOf(Samurai.faith));
-            levelArcane.setText(String.valueOf(Samurai.arcane));
-            
-            
+                     
             //Add ComboBox Listener
             classes.addActionListener((ActionEvent e) -> {
                 //This line of code grabs the combo box selection to pass to the switch statement
@@ -410,57 +400,108 @@ public class FrontEnd implements ActionListener{
             //levelWindow Action
             levelWindow.setText(String.valueOf(12));
             //Add Button Press Event Listener
-            increase.addActionListener((ActionEvent e) -> {
-            levelInt++;
-            levelWindow.setText(String.valueOf(levelInt));
-            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-            System.out.println("Increase Button Pressed");
-            if(vigorRadio.isSelected())
-                    {
-                        Samurai.vigor++;
-                        levelVigor.setText(String.valueOf(Samurai.vigor));
-                        
-                    }
-            else if(mindRadio.isSelected())
-                    {
-                        Samurai.mind++;
-                        levelMind.setText(String.valueOf(Samurai.mind));
-                    }
-            else if(enduranceRadio.isSelected())
-                    {
-                        Samurai.endurance++;
-                        levelEndurance.setText(String.valueOf(Samurai.endurance));
-                    }
-            else if(strengthRadio.isSelected())
-                    {
-                        Samurai.strength++;
-                        levelStrength.setText(String.valueOf(Samurai.strength));
-                    }
-            else if(dexterityRadio.isSelected())
-                    {
-                        Samurai.dexterity++;
-                        levelDexterity.setText(String.valueOf(Samurai.dexterity));
-                    }
-            else if(intelligenceRadio.isSelected())
-                    {
-                        Samurai.intelligence++;
-                        levelIntelligence.setText(String.valueOf(Samurai.intelligence));
-                    }
-            else if(faithRadio.isSelected())
-                    {
-                        Samurai.faith++;
-                        levelFaith.setText(String.valueOf(Samurai.faith));
-                    }
-            else if(arcaneRadio.isSelected())
-                    {
-                        Samurai.arcane++;
-                        levelArcane.setText(String.valueOf(Samurai.arcane));
-                    }
-            
-            });
-            
+            increase.addActionListener((ActionEvent e) ->
+            {
+                //levelInt++;
+               
+                if(vigorRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.vigor++;
+                            levelVigor.setText(String.valueOf(Samurai.vigor));
+                           
+                        }
+                else if(mindRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.mind++;
+                            levelMind.setText(String.valueOf(Samurai.mind));
+                        }
+                else if(enduranceRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.endurance++;
+                            levelEndurance.setText(String.valueOf(Samurai.endurance));
+                        }
+                else if(strengthRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.strength++;
+                            levelStrength.setText(String.valueOf(Samurai.strength));
+                        }
+                else if(dexterityRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.dexterity++;
+                            levelDexterity.setText(String.valueOf(Samurai.dexterity));
+                        }
+                else if(intelligenceRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.intelligence++;
+                            levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+                        }
+                else if(faithRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.faith++;
+                            levelFaith.setText(String.valueOf(Samurai.faith));
+                        }
+                else if(arcaneRadio.isSelected())
+                        {
+                            levelInt++;
+                            levelWindow.setText(String.valueOf(levelInt));
+                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                            System.out.println("Increase Button Pressed");
+                            Samurai.arcane++;
+                            levelArcane.setText(String.valueOf(Samurai.arcane));
+                        }
+                else
+                        {
+                            JFrame f;
+                            f =new JFrame();
+                            JOptionPane.showMessageDialog(f,"Please Select a Stat to increase level .","Alert",JOptionPane.WARNING_MESSAGE);
+                        }
+
+                });
+
             decrease.addActionListener((ActionEvent e) ->
             {
                 if (levelInt == 12)
@@ -472,52 +513,102 @@ public class FrontEnd implements ActionListener{
                    }
                     else
                     {
-                        levelInt--;
-                        levelWindow.setText(String.valueOf(levelInt));
-                        rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                        Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                        runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                        System.out.println("Decrease Button Pressed");
+                       
                         if(vigorRadio.isSelected())
                                 {
-
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.vigor--;
                                     levelVigor.setText(String.valueOf(Samurai.vigor));
                                 }
                         else if(mindRadio.isSelected())
                                 {
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.mind--;
                                     levelMind.setText(String.valueOf(Samurai.mind));
                                 }
                         else if(enduranceRadio.isSelected())
                                 {
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.endurance--;
                                     levelEndurance.setText(String.valueOf(Samurai.endurance));
                                 }
                         else if(strengthRadio.isSelected())
                                 {
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.strength--;
                                     levelStrength.setText(String.valueOf(Samurai.strength));
                                 }
                         else if(dexterityRadio.isSelected())
                                 {
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.dexterity--;
                                     levelDexterity.setText(String.valueOf(Samurai.dexterity));
                                 }
                         else if(intelligenceRadio.isSelected())
                                 {
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.intelligence--;
                                     levelIntelligence.setText(String.valueOf(Samurai.intelligence));
                                 }
                         else if(faithRadio.isSelected())
                                 {
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.faith--;
                                     levelFaith.setText(String.valueOf(Samurai.faith));
                                 }
                         else if(arcaneRadio.isSelected())
                                 {
+                                    levelInt--;
+                                    levelWindow.setText(String.valueOf(levelInt));
+                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
+                                    System.out.println("Decrease Button Pressed");
                                     Samurai.arcane--;
                                     levelArcane.setText(String.valueOf(Samurai.arcane));
+                                }
+                        else
+                                {
+                                        
+                                    JFrame f;
+                                    f =new JFrame();
+                                    JOptionPane.showMessageDialog(f,"Please Select a Stat to decrease level.","Alert",JOptionPane.WARNING_MESSAGE);
+                                    
                                 }
             }});
       
