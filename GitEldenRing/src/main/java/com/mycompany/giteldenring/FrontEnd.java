@@ -414,8 +414,8 @@ public class FrontEnd implements ActionListener{
             levelInt++;
             levelWindow.setText(String.valueOf(levelInt));
             rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-            Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
-            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
+            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
             System.out.println("Increase Button Pressed");
             if(vigorRadio.isSelected())
                     {
@@ -475,8 +475,8 @@ public class FrontEnd implements ActionListener{
                         levelInt--;
                         levelWindow.setText(String.valueOf(levelInt));
                         rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                        Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
-                        runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
+                        Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
+                        runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
                         System.out.println("Decrease Button Pressed");
                         if(vigorRadio.isSelected())
                                 {
