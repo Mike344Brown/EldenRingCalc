@@ -6,7 +6,7 @@ package com.mycompany.giteldenring;
 import java.lang.Math;
 /**
  *
- * @author chef
+ * Entire formula class created by **Nathan**
  */
 public class RuneFormula {
         /**
@@ -58,7 +58,7 @@ public class RuneFormula {
             return runesForLevelUp;
     }
     public double totalRuneCalc(){
-            total_runes = 0;
+            
             for(double i = 1; i < total_levels; i++){
                 double currentRuneValue = nextLevelCalc(i);
                 if (currentRuneValue > 1) {
