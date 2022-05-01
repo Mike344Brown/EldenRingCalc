@@ -103,24 +103,29 @@ public class FrontEnd implements ActionListener{
         //Constructor for boxLayout button panel
         public FrontEnd(){
             
+           
             //Left Side Panel containing current level text window, inc dec buttons, and the combobox and cb label.
             inc_dec_panel_left.setLayout(new BoxLayout(inc_dec_panel_left,BoxLayout.PAGE_AXIS));
             inc_dec_panel_left.add(currentLevel);
             inc_dec_panel_left.add(levelWindow);
-            inc_dec_panel_left.add(increase); 
+            inc_dec_panel_left.add(Box.createVerticalStrut(30));
+            inc_dec_panel_left.add(increase);
             inc_dec_panel_left.add(decrease);
+            inc_dec_panel_left.add(Box.createVerticalStrut(30));
             inc_dec_panel_left.add(selectClassToLevel);
             inc_dec_panel_left.add(classes);
+            inc_dec_panel_left.add(Box.createVerticalStrut(30));
             inc_dec_panel_left.add(runesRequiredForNextLevel);
             inc_dec_panel_left.add(rrOutputWindow);
             rrOutputWindow.setEditable(false);
             inc_dec_panel_left.add(totalRunesSpent);
             inc_dec_panel_left.add(runeTotalOutputWindow);
+             inc_dec_panel_left.add(Box.createVerticalStrut(30));
             
              
             //Set font options
             selectClassToLevel.setFont(new Font("Courier", Font.BOLD, 14));
-            currentLevel.setFont(new Font("Courier", Font.BOLD, 14));
+            currentLevel.setFont(new Font("Courier", Font.BOLD, 20));
             
             
             //Vigor stat elements panels:
