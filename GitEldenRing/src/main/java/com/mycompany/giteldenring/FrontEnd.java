@@ -91,7 +91,7 @@ public class FrontEnd implements ActionListener{
         Dimension fieldSize = new Dimension(64, 31);
         Dimension centerArea = new Dimension(40, 300);
         Dimension conboBoxDimension = new Dimension(52, 22);
-        Dimension buttonDimension = new Dimension(86, 22);
+        Dimension buttonDimension = new Dimension(55, 22);
         
         
         
@@ -161,9 +161,11 @@ public class FrontEnd implements ActionListener{
             title.setFont(castellar26);
             currentLevelLabel.setFont(castellar26);
             levelWindow.setFont(stencil24);
-            levelWindow.setForeground(Color.red);
             increase.setFont(segoeItalic12);
             decrease.setFont(segoeItalic12);
+            levelWindow.setForeground(Color.red);
+            increase.setForeground(new java.awt.Color(0, 153, 0));
+            decrease.setForeground(Color.RED);
 
             //Add Radio Button font ***Marvin***
             vigorRadio.setFont(segoeFont20);
@@ -208,16 +210,16 @@ public class FrontEnd implements ActionListener{
             totalRunesSpent.setAlignmentX(Component.LEFT_ALIGNMENT);
 
             
-            //Sizing boxex
-            classes.setPreferredSize(conboBoxDimension);
-            rrOutputWindow.setPreferredSize(conboBoxDimension);
-            runeTotalOutputWindow.setPreferredSize(conboBoxDimension);
-            runesRequiredForNextLevel.setPreferredSize(conboBoxDimension);
-            selectClassToLevel.setPreferredSize(conboBoxDimension);
-            increase.setMaximumSize(buttonDimension);
-            decrease.setMaximumSize(buttonDimension);
-            increase.setMinimumSize(buttonDimension);
-            decrease.setMinimumSize(buttonDimension);
+//            //Sizing boxex
+//            classes.setPreferredSize(conboBoxDimension);
+//            rrOutputWindow.setPreferredSize(conboBoxDimension);
+//            runeTotalOutputWindow.setPreferredSize(conboBoxDimension);
+//            runesRequiredForNextLevel.setPreferredSize(conboBoxDimension);
+//            selectClassToLevel.setPreferredSize(conboBoxDimension);
+////            increase.setMaximumSize(buttonDimension);
+////            decrease.setMaximumSize(buttonDimension);
+//////            increase.setMinimumSize(buttonDimension);
+//////            decrease.setMinimumSize(buttonDimension);
             
             
             //Title container
