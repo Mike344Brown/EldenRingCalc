@@ -1,12 +1,9 @@
-                                                                                                                                        /*
                                                                                                                                          /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.giteldenring;
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 /**
@@ -27,28 +24,25 @@ public class FrontEnd implements ActionListener{
         JTextField levelWindow = new JTextField();
         JButton increase = new JButton("Increase");
         JButton decrease = new JButton("Decrease");
-        Font myFont = new Font("Courier", Font.BOLD, 20);
+        Font segoeFont20 = new Font("Segoe UI", Font.BOLD, 20);
+        Font segoeFont18 = new Font("Segoe UI", Font.BOLD, 18);
+        Font segoeFont16 = new Font("Segoe UI", Font.BOLD, 16);
+        Font segoeItalic12 = new Font("Segoe UI Semibold Italic", Font.PLAIN, 12);
+        Font segoeFont12 = new Font("Segoe UI", Font.BOLD, 12);
+        Font castellar26 = new Font("Castellar", Font.BOLD, 26);
+        Font stencil24 = new Font("Stencil", Font.BOLD, 24);
         
         //Build Arrays for character names.
         String [] names = {"", "Samurai", "Prophet", "Warrior", "Hero", "Bandit", "Astrologer", "Prisoner", "Confessor", "Wretch", "Vagabond"};
         JComboBox classes = new JComboBox(names);
-        JLabel currentLevel = new JLabel("Current Level");
-        JLabel selectClassToLevel = new JLabel("Select Class");
-        JLabel runesRequiredForNextLevel = new JLabel("Runes Required for Next Level");
+        JLabel currentLevelLabel = new JLabel("Level");
+        JLabel selectClassToLevel = new JLabel("Class");
+        JLabel runesRequiredForNextLevel = new JLabel("Next Level");
         JTextField rrOutputWindow = new JTextField();
         JLabel totalRunesSpent = new JLabel("Total Runes");
         JTextField runeTotalOutputWindow = new JTextField();
-        
-        
-        //Create instance variables for the stat labels.
-        JLabel vigorStatLabel = new JLabel("Vigor");
-        JLabel mindStatLabel = new JLabel("Mind");
-        JLabel enduranceStatLabel = new JLabel("Endurance");
-        JLabel strengthStatLabel = new JLabel("Strength");
-        JLabel dexterityStatLabel = new JLabel("Dexterity");
-        JLabel intelligenceStatLabel = new JLabel("Intelligence");
-        JLabel faithStatLabel = new JLabel("Faith");
-        JLabel arcaneStatLabel = new JLabel("Arcane");
+                
+        JLabel title  = new JLabel("RUNE CALCULATOR");
         
         //Create instance variables to hold the text boxes for the levels
         JTextField levelVigor = new JTextField(2);
@@ -92,6 +86,13 @@ public class FrontEnd implements ActionListener{
         JPanel intelligenceStatContainer = new JPanel();
         JPanel faithStatContainer = new JPanel();
         JPanel arcaneStatContainer = new JPanel();
+        JPanel titleContainer = new JPanel();
+        JPanel levelContainer = new JPanel();
+        Dimension fieldSize = new Dimension(64, 31);
+        Dimension centerArea = new Dimension(40, 300);
+        Dimension conboBoxDimension = new Dimension(52, 22);
+        Dimension buttonDimension = new Dimension(55, 22);
+        
         
         
         //level int
@@ -103,100 +104,225 @@ public class FrontEnd implements ActionListener{
         //Constructor for boxLayout button panel
         public FrontEnd(){
             
-           
             //Left Side Panel containing current level text window, inc dec buttons, and the combobox and cb label.
             inc_dec_panel_left.setLayout(new BoxLayout(inc_dec_panel_left,BoxLayout.PAGE_AXIS));
-            inc_dec_panel_left.add(currentLevel);
-            inc_dec_panel_left.add(levelWindow);
-            inc_dec_panel_left.add(Box.createVerticalStrut(30));
-            inc_dec_panel_left.add(increase);
-            inc_dec_panel_left.add(decrease);
-            inc_dec_panel_left.add(Box.createVerticalStrut(30));
+            
             inc_dec_panel_left.add(selectClassToLevel);
             inc_dec_panel_left.add(classes);
-            inc_dec_panel_left.add(Box.createVerticalStrut(30));
+            inc_dec_panel_left.add(Box.createVerticalStrut(20));
+
+            inc_dec_panel_left.add(increase); 
+            inc_dec_panel_left.add(Box.createVerticalStrut(20));
+            inc_dec_panel_left.add(decrease);
+            inc_dec_panel_left.add(Box.createVerticalStrut(40));
             inc_dec_panel_left.add(runesRequiredForNextLevel);
             inc_dec_panel_left.add(rrOutputWindow);
             rrOutputWindow.setEditable(false);
             inc_dec_panel_left.add(totalRunesSpent);
             inc_dec_panel_left.add(runeTotalOutputWindow);
-             inc_dec_panel_left.add(Box.createVerticalStrut(30));
+            
+            inc_dec_panel_center.add(Box.createRigidArea(centerArea));
+            inc_dec_panel_left.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+            levelContainer.setLayout(new BoxLayout(levelContainer,BoxLayout.PAGE_AXIS));
+            levelContainer.add(Box.createVerticalStrut(20));
+            levelContainer.add(currentLevelLabel);
+            levelContainer.add(levelWindow);
+//            inc_dec_panel_left.add(currentLevelLabel);
+//            inc_dec_panel_left.add(levelWindow);
             
              
             //Set font options
-            selectClassToLevel.setFont(new Font("Courier", Font.BOLD, 14));
-            currentLevel.setFont(new Font("Courier", Font.BOLD, 20));
+            selectClassToLevel.setFont(segoeFont12);
+            runesRequiredForNextLevel.setFont(segoeFont12);
+            totalRunesSpent.setFont(segoeFont12);
+//            currentLevelLabel.setFont(new Font("Courier", Font.BOLD, 14));
             
+            //Sizing JTextfields ***Marvin***
+            levelVigor.setPreferredSize(fieldSize);
+            levelMind.setPreferredSize(fieldSize);
+            levelEndurance.setPreferredSize(fieldSize);
+            levelStrength.setPreferredSize(fieldSize);
+            levelDexterity.setPreferredSize(fieldSize);
+            levelIntelligence.setPreferredSize(fieldSize);
+            levelFaith.setPreferredSize(fieldSize);
+            levelArcane.setPreferredSize(fieldSize);
+            
+            //Adding font to JTextfields ***Marvin***
+            levelVigor.setFont(segoeFont18);
+            levelMind.setFont(segoeFont18);
+            levelEndurance.setFont(segoeFont18);
+            levelStrength.setFont(segoeFont18);
+            levelDexterity.setFont(segoeFont18);
+            levelIntelligence.setFont(segoeFont18);
+            levelFaith.setFont(segoeFont18);
+            levelArcane.setFont(segoeFont18);
+            
+            title.setFont(castellar26);
+            currentLevelLabel.setFont(castellar26);
+            levelWindow.setFont(stencil24);
+            increase.setFont(segoeItalic12);
+            decrease.setFont(segoeItalic12);
+            levelWindow.setForeground(Color.red);
+            increase.setForeground(new java.awt.Color(0, 153, 0));
+            decrease.setForeground(Color.RED);
+
+            //Add Radio Button font ***Marvin***
+            vigorRadio.setFont(segoeFont20);
+            mindRadio.setFont(segoeFont20);
+            enduranceRadio.setFont(segoeFont20);
+            strengthRadio.setFont(segoeFont20);
+            dexterityRadio.setFont(segoeFont20);
+            intelligenceRadio.setFont(segoeFont20);
+            faithRadio.setFont(segoeFont20);
+            arcaneRadio.setFont(segoeFont20);
+            
+            //Text Alignment ***Marvin***
+            levelVigor.setHorizontalAlignment(JTextField.CENTER);
+            levelMind.setHorizontalAlignment(JTextField.CENTER);
+            levelEndurance.setHorizontalAlignment(JTextField.CENTER);
+            levelStrength.setHorizontalAlignment(JTextField.CENTER);
+            levelDexterity.setHorizontalAlignment(JTextField.CENTER);
+            levelIntelligence.setHorizontalAlignment(JTextField.CENTER);
+            levelFaith.setHorizontalAlignment(JTextField.CENTER);
+            levelArcane.setHorizontalAlignment(JTextField.CENTER);
+            selectClassToLevel.setHorizontalAlignment(JTextField.CENTER);
+            ((JLabel)classes.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+            levelWindow.setHorizontalAlignment(JTextField.CENTER);
+            rrOutputWindow.setHorizontalAlignment(JTextField.RIGHT);
+            runeTotalOutputWindow.setHorizontalAlignment(JTextField.RIGHT);
+                   
+            //Align radio buttons ***Marvin***
+            vigorStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            mindStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            enduranceStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            strengthStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            dexterityStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            intelligenceStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            faithStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            arcaneStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            
+            increase.setAlignmentX(Component.LEFT_ALIGNMENT);
+            decrease.setAlignmentX(Component.LEFT_ALIGNMENT);
+            selectClassToLevel.setAlignmentX(Component.LEFT_ALIGNMENT);
+            selectClassToLevel.setMaximumSize(conboBoxDimension);
+            runesRequiredForNextLevel.setAlignmentX(Component.LEFT_ALIGNMENT);
+            totalRunesSpent.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+            
+//            //Sizing boxex
+//            classes.setPreferredSize(conboBoxDimension);
+//            rrOutputWindow.setPreferredSize(conboBoxDimension);
+//            runeTotalOutputWindow.setPreferredSize(conboBoxDimension);
+//            runesRequiredForNextLevel.setPreferredSize(conboBoxDimension);
+//            selectClassToLevel.setPreferredSize(conboBoxDimension);
+////            increase.setMaximumSize(buttonDimension);
+////            decrease.setMaximumSize(buttonDimension);
+//////            increase.setMinimumSize(buttonDimension);
+//////            decrease.setMinimumSize(buttonDimension);
+            
+            
+            //Title container
+            titleContainer.add(title);
             
             //Vigor stat elements panels:
             vigorStatContainer.setLayout(new BoxLayout(vigorStatContainer,BoxLayout.LINE_AXIS));
-            vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            vigorStatContainer.add(Box.createHorizontalGlue());
-//            vigorStatContainer.add(vigorStatLabel);
-            vigorStatContainer.add(levelVigor);
+//            vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 50));
+//            vigorStatContainer.add(Box.createHorizontalGlue());
+//            vigorStatContainer.add(levelVigor);
+//            vigorStatContainer.add(Box.createHorizontalStrut(60));
             vigorStatContainer.add(vigorRadio);
+//            vigorStatContainer.add(vigorStatLabel);
+//            vigorStatContainer.add(Box.createHorizontalStrut(20));
+            System.out.println(levelVigor.getBounds());
             
             //Mind stat elements panels:
             mindStatContainer.setLayout(new BoxLayout(mindStatContainer,BoxLayout.LINE_AXIS));
-            mindStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            mindStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            mindStatContainer.add(mindStatLabel);
-            mindStatContainer.add(Box.createHorizontalStrut(80));
-            mindStatContainer.add(levelMind);
+//            mindStatContainer.add(levelMind);
+//            mindStatContainer.add(Box.createHorizontalStrut(60));
             mindStatContainer.add(mindRadio);
+//            mindStatContainer.add(Box.createHorizontalGlue());
+//            mindStatContainer.add(Box.createHorizontalStrut(13));
             
             //Endurance stat elements panels:
             enduranceStatContainer.setLayout(new BoxLayout(enduranceStatContainer,BoxLayout.LINE_AXIS));
-            enduranceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            enduranceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            enduranceStatContainer.add(enduranceStatLabel);
-            enduranceStatContainer.add(Box.createHorizontalStrut(30));
-            enduranceStatContainer.add(levelEndurance);
+//            enduranceStatContainer.add(levelEndurance);
+//            enduranceStatContainer.add(Box.createHorizontalStrut(12));
             enduranceStatContainer.add(enduranceRadio);
+//            enduranceStatContainer.add(Box.createHorizontalStrut(1));
             
             //Strength stat elements panels:
             strengthStatContainer.setLayout(new BoxLayout(strengthStatContainer,BoxLayout.LINE_AXIS));
-            strengthStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            strengthStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            strengthStatContainer.add(strengthStatLabel);
-            strengthStatContainer.add(Box.createHorizontalStrut(20));
-            strengthStatContainer.add(levelStrength);
+//            strengthStatContainer.add(levelStrength);
+//            strengthStatContainer.add(Box.createHorizontalStrut(20));
             strengthStatContainer.add(strengthRadio);
             
             //Dexterity stat elements panels:
             dexterityStatContainer.setLayout(new BoxLayout(dexterityStatContainer,BoxLayout.LINE_AXIS));
-            dexterityStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            dexterityStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            dexterityStatContainer.add(dexterityStatLabel);
-            dexterityStatContainer.add(Box.createHorizontalStrut(20));
             dexterityStatContainer.add(levelDexterity);
+//            dexterityStatContainer.add(Box.createHorizontalStrut(20));
             dexterityStatContainer.add(dexterityRadio);
             
             //Intelligence stat elements panels:
             intelligenceStatContainer.setLayout(new BoxLayout(intelligenceStatContainer,BoxLayout.LINE_AXIS));
-            intelligenceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            intelligenceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            intelligenceStatContainer.add(intelligenceStatLabel);
-            intelligenceStatContainer.add(Box.createHorizontalStrut(20));
-            intelligenceStatContainer.add(levelIntelligence);
+//            intelligenceStatContainer.add(levelIntelligence);
+//            intelligenceStatContainer.add(Box.createHorizontalStrut(20));
             intelligenceStatContainer.add(intelligenceRadio);
             
             //Faith stat elements panels:
             faithStatContainer.setLayout(new BoxLayout(faithStatContainer,BoxLayout.LINE_AXIS));
-            faithStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            faithStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            faithStatContainer.add(faithStatLabel);
-            faithStatContainer.add(Box.createHorizontalStrut(20));
-            faithStatContainer.add(levelFaith);
+//            faithStatContainer.add(levelFaith);
+//            faithStatContainer.add(Box.createHorizontalStrut(20));
             faithStatContainer.add(faithRadio);
             
             //Arcane stat elements panels:
             arcaneStatContainer.setLayout(new BoxLayout(arcaneStatContainer,BoxLayout.LINE_AXIS));
-            arcaneStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            arcaneStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            arcaneStatContainer.add(arcaneStatLabel);
-            arcaneStatContainer.add(Box.createHorizontalStrut(20));
-            arcaneStatContainer.add(levelArcane);
+//            arcaneStatContainer.add(levelArcane);
+//            arcaneStatContainer.add(Box.createHorizontalStrut(20));
             arcaneStatContainer.add(arcaneRadio);
+            
+            //Create stat level container ***Marvin***
+            statLevelContainer.setLayout(new BoxLayout(statLevelContainer, BoxLayout.PAGE_AXIS));
+            statLevelContainer.add(levelVigor);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelMind);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelEndurance);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelStrength);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelDexterity);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelIntelligence);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelFaith);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelArcane);
+            
+            
+            
             
             
             
             
             //Add Stat elements to a vertically oriented container
-            radioButtonContainer.setLayout(new BoxLayout(radioButtonContainer,BoxLayout.PAGE_AXIS));
+            radioButtonContainer.setLayout(new BoxLayout(radioButtonContainer,BoxLayout.Y_AXIS));
+            System.out.println(radioButtonContainer.getPreferredSize());
+            System.out.println(radioButtonContainer.getAlignmentY());
             radioButtonContainer.add(Box.createVerticalStrut(10));
             radioButtonContainer.add(vigorStatContainer);
             radioButtonContainer.add(Box.createVerticalStrut(10));
@@ -238,20 +364,7 @@ public class FrontEnd implements ActionListener{
             levelIntelligence.setEditable(false);
             levelFaith.setEditable(false);
             levelArcane.setEditable(false);
-            levelWindow.setEditable(false);
-            runeTotalOutputWindow.setEditable(false);
             
-            
-            
-            //Add Radio Button font ***Marvin***
-            vigorRadio.setFont(myFont);
-            mindRadio.setFont(myFont);
-            enduranceRadio.setFont(myFont);
-            strengthRadio.setFont(myFont);
-            dexterityRadio.setFont(myFont);
-            intelligenceRadio.setFont(myFont);
-            faithRadio.setFont(myFont);
-            arcaneRadio.setFont(myFont);
             
             //Add buttons to button group ***Marvin***
             buttonGroup.add(vigorRadio);
@@ -265,22 +378,32 @@ public class FrontEnd implements ActionListener{
             
             
             //Add panel containers to the frame
+            container.add(titleContainer, BorderLayout.NORTH);
             container.add(inc_dec_panel_left, BorderLayout.WEST);
             container.add(inc_dec_panel_center, BorderLayout.CENTER);
-            container.add(statLevelContainer, BorderLayout.EAST);
-            
+            container.add(statLevelContainer, BorderLayout.EAST); 
             container.add(radioButtonContainer, BorderLayout.EAST);
+            container.add(levelContainer, BorderLayout.SOUTH);
             
           
             //Add container to frame
+            int width = 450;
+            int height = 550;
+            int x = (int) ((layer_1_container.getWidth())/2 + 300);
+            int y = (int) ((layer_1_container.getHeight())/2 +100);
+
+            layer_1_container.pack();
+            Dimension alteredScreenSize = new Dimension(width, height);
+            layer_1_container.setLocation(x,y);
+            layer_1_container.setSize(alteredScreenSize);
+            layer_1_container.setResizable(false); 
             layer_1_container.add(container);
             layer_1_container.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             
             
-            layer_1_container.setSize(640,480);
+            layer_1_container.setSize(width, height);
             layer_1_container.setVisible(true);
             
-        
             //Build Classes
             Classes Samurai =  new Classes("Samurai", 12, 11, 13, 12, 15, 9, 8, 8);
             Classes Prophet =  new Classes("Prophet", 10, 14, 8, 11, 10, 7, 16, 10);
@@ -293,7 +416,17 @@ public class FrontEnd implements ActionListener{
             Classes Wretch =  new Classes("Wretch", 10, 10, 10, 10, 10, 10, 10, 10);
             Classes Vagabond =  new Classes("Vagabond", 15, 10, 11, 14, 13, 9, 9, 7);
             
-                     
+            //Set initial values
+            levelVigor.setText(String.valueOf(Samurai.vigor));
+            levelMind.setText(String.valueOf(Samurai.mind));
+            levelEndurance.setText(String.valueOf(Samurai.endurance));
+            levelStrength.setText(String.valueOf(Samurai.strength));
+            levelDexterity.setText(String.valueOf(Samurai.dexterity));
+            levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+            levelFaith.setText(String.valueOf(Samurai.faith));
+            levelArcane.setText(String.valueOf(Samurai.arcane));
+            
+            
             //Add ComboBox Listener
             classes.addActionListener((ActionEvent e) -> {
                 //This line of code grabs the combo box selection to pass to the switch statement
@@ -302,7 +435,6 @@ public class FrontEnd implements ActionListener{
                 //This Switch statement passes all of the stat values into the text selection windows    
                 switch (comboBoxSelection) {
                     case "Samurai":
-                        
                         levelVigor.setText(String.valueOf(Samurai.vigor));
                         levelMind.setText(String.valueOf(Samurai.mind));
                         levelEndurance.setText(String.valueOf(Samurai.endurance));
@@ -408,218 +540,106 @@ public class FrontEnd implements ActionListener{
             //levelWindow Action
             levelWindow.setText(String.valueOf(12));
             //Add Button Press Event Listener
-            increase.addActionListener((ActionEvent e) ->
-            {
-                //levelInt++;
-               
+            increase.addActionListener((ActionEvent e) -> {
+                levelInt++;
+                levelWindow.setText(String.valueOf(levelInt));
+                rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
+                runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
+                System.out.println("Increase Button Pressed");
                 if(vigorRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.vigor++;
                             levelVigor.setText(String.valueOf(Samurai.vigor));
-                           
+
                         }
                 else if(mindRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.mind++;
                             levelMind.setText(String.valueOf(Samurai.mind));
                         }
                 else if(enduranceRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.endurance++;
                             levelEndurance.setText(String.valueOf(Samurai.endurance));
                         }
                 else if(strengthRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.strength++;
                             levelStrength.setText(String.valueOf(Samurai.strength));
                         }
                 else if(dexterityRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.dexterity++;
                             levelDexterity.setText(String.valueOf(Samurai.dexterity));
                         }
                 else if(intelligenceRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.intelligence++;
                             levelIntelligence.setText(String.valueOf(Samurai.intelligence));
                         }
                 else if(faithRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.faith++;
                             levelFaith.setText(String.valueOf(Samurai.faith));
                         }
                 else if(arcaneRadio.isSelected())
                         {
-                            levelInt++;
-                            levelWindow.setText(String.valueOf(levelInt));
-                            rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                            Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                            runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                            System.out.println("Increase Button Pressed");
                             Samurai.arcane++;
                             levelArcane.setText(String.valueOf(Samurai.arcane));
                         }
-                else
-                        {
-                            JFrame f;
-                            f =new JFrame();
-                            JOptionPane.showMessageDialog(f,"Please Select a Stat to increase level .","Alert",JOptionPane.WARNING_MESSAGE);
-                        }
 
                 });
-
-            decrease.addActionListener((ActionEvent e) ->
-            {
-                if (levelInt == 12)
-                   {
-                        JFrame f;
-                        f =new JFrame();
-                        JOptionPane.showMessageDialog(f,"Level formula only works for 12, Level has not been decreased.","Alert",JOptionPane.WARNING_MESSAGE);
-                                
-                   }
-                    else
-                    {
-                       
-                        if(vigorRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.vigor--;
-                                    levelVigor.setText(String.valueOf(Samurai.vigor));
-                                }
-                        else if(mindRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.mind--;
-                                    levelMind.setText(String.valueOf(Samurai.mind));
-                                }
-                        else if(enduranceRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.endurance--;
-                                    levelEndurance.setText(String.valueOf(Samurai.endurance));
-                                }
-                        else if(strengthRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.strength--;
-                                    levelStrength.setText(String.valueOf(Samurai.strength));
-                                }
-                        else if(dexterityRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.dexterity--;
-                                    levelDexterity.setText(String.valueOf(Samurai.dexterity));
-                                }
-                        else if(intelligenceRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.intelligence--;
-                                    levelIntelligence.setText(String.valueOf(Samurai.intelligence));
-                                }
-                        else if(faithRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.faith--;
-                                    levelFaith.setText(String.valueOf(Samurai.faith));
-                                }
-                        else if(arcaneRadio.isSelected())
-                                {
-                                    levelInt--;
-                                    levelWindow.setText(String.valueOf(levelInt));
-                                    rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
-                                    Integer totalRunes = Integer.parseInt(rrOutputWindow.getText());
-                                    runeTotalOutputWindow.setText(String.valueOf(totalRunes + Integer.parseInt(rrOutputWindow.getText())));
-                                    System.out.println("Decrease Button Pressed");
-                                    Samurai.arcane--;
-                                    levelArcane.setText(String.valueOf(Samurai.arcane));
-                                }
-                        else
-                                {
-                                        
-                                    JFrame f;
-                                    f =new JFrame();
-                                    JOptionPane.showMessageDialog(f,"Please Select a Stat to decrease level.","Alert",JOptionPane.WARNING_MESSAGE);
-                                    
-                                }
-            }});
-               
+            
+            decrease.addActionListener((ActionEvent e) -> {
+                levelInt--;
+                levelWindow.setText(String.valueOf(levelInt));
+                rrOutputWindow.setText(String.valueOf(formula.nextLevelCalc(levelInt)));
+                Double totalRunes = Double.parseDouble(rrOutputWindow.getText());
+                runeTotalOutputWindow.setText(String.valueOf(totalRunes + Double.parseDouble(rrOutputWindow.getText())));
+                System.out.println("Decrease Button Pressed");
+                if(vigorRadio.isSelected())
+                        {
+                            Samurai.vigor--;
+                            levelVigor.setText(String.valueOf(Samurai.vigor));
+                        }
+                else if(mindRadio.isSelected())
+                        {
+                            Samurai.mind--;
+                            levelMind.setText(String.valueOf(Samurai.mind));
+                        }
+                else if(enduranceRadio.isSelected())
+                        {
+                            Samurai.endurance--;
+                            levelEndurance.setText(String.valueOf(Samurai.endurance));
+                        }
+                else if(strengthRadio.isSelected())
+                        {
+                            Samurai.strength--;
+                            levelStrength.setText(String.valueOf(Samurai.strength));
+                        }
+                else if(dexterityRadio.isSelected())
+                        {
+                            Samurai.dexterity--;
+                            levelDexterity.setText(String.valueOf(Samurai.dexterity));
+                        }
+                else if(intelligenceRadio.isSelected())
+                        {
+                            Samurai.intelligence--;
+                            levelIntelligence.setText(String.valueOf(Samurai.intelligence));
+                        }
+                else if(faithRadio.isSelected())
+                        {
+                            Samurai.faith--;
+                            levelFaith.setText(String.valueOf(Samurai.faith));
+                        }
+                else if(arcaneRadio.isSelected())
+                        {
+                            Samurai.arcane--;
+                            levelArcane.setText(String.valueOf(Samurai.arcane));
+                        }
+                });
+      
         }
     
     @Override
@@ -672,7 +692,7 @@ public class FrontEnd implements ActionListener{
        levelArcane.setEditable(false);
        
     
-   } 
+    } 
     
     
     
