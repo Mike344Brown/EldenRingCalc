@@ -192,9 +192,30 @@ public class FrontEnd implements ActionListener{
             arcaneStatContainer.add(levelArcane);
             arcaneStatContainer.add(arcaneRadio);
             
+
+            //Create stat level container ***Marvin***
+            statLevelContainer.setLayout(new BoxLayout(statLevelContainer, BoxLayout.PAGE_AXIS));
+            statLevelContainer.add(levelVigor);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelMind);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelEndurance);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelStrength);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelDexterity);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelIntelligence);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelFaith);
+            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(levelArcane);
+  
+
             
             
             
+
             //Add Stat elements to a vertically oriented container
             radioButtonContainer.setLayout(new BoxLayout(radioButtonContainer,BoxLayout.PAGE_AXIS));
             radioButtonContainer.add(Box.createVerticalStrut(10));
