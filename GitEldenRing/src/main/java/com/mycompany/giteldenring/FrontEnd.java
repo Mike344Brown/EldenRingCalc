@@ -312,13 +312,7 @@ public class FrontEnd implements ActionListener{
             statLevelContainer.add(levelFaith);
             statLevelContainer.add(Box.createVerticalStrut(14));
             statLevelContainer.add(levelArcane);
-            
-            
-            
-            
-            
-            
-            
+  
             //Add Stat elements to a vertically oriented container
             radioButtonContainer.setLayout(new BoxLayout(radioButtonContainer,BoxLayout.Y_AXIS));
             System.out.println(radioButtonContainer.getPreferredSize());
