@@ -21,11 +21,11 @@ public class RuneFormula {
          * prophet = 7
          * samurai = 9 
          */
-        public double base_RuneAmountToGetToLevelTwelve;
-        public double total_levels= 713;
-        public double total_runes;
-        public double runesForLevelUp;
-        public double current_level;
+        public int base_RuneAmountToGetToLevelTwelve;
+        public int total_levels= 713;
+        public int total_runes;
+        public int runesForLevelUp;
+        public int current_level;
         public RuneFormula(int base_level)
         {
             switch(base_level){
@@ -52,15 +52,15 @@ public class RuneFormula {
 
 
         }  
-    public double nextLevelCalc(double current_level){
-            runesForLevelUp = ((0.02*(Math.pow(current_level,3))) + (3.06*(Math.pow(current_level, 2)))
+    public int nextLevelCalc(double current_level){
+            runesForLevelUp = (int)((0.02*(Math.pow(current_level,3))) + (3.06*(Math.pow(current_level, 2)))
                     + (105.6*current_level) - 895);
             return runesForLevelUp;
     }
-    public double totalRuneCalc(){
+    public int totalRuneCalc(){
             
-            for(double i = 1; i < total_levels; i++){
-                double currentRuneValue = nextLevelCalc(i);
+            for(int i = 1; i < total_levels; i++){
+                int currentRuneValue = nextLevelCalc(i);
                 if (currentRuneValue > 1) {
                         total_runes += currentRuneValue;
 
