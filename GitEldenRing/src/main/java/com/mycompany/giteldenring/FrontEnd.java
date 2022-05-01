@@ -3,7 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.giteldenring;
+<<<<<<< Updated upstream
 import java.awt.*;
+=======
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+>>>>>>> Stashed changes
 import java.awt.event.*;
 import javax.swing.*;
 /**
@@ -106,7 +113,18 @@ public class FrontEnd implements ActionListener{
             
             //Left Side Panel containing current level text window, inc dec buttons, and the combobox and cb label.
             inc_dec_panel_left.setLayout(new BoxLayout(inc_dec_panel_left,BoxLayout.PAGE_AXIS));
+<<<<<<< Updated upstream
             
+=======
+            increase.setBackground(Color.GREEN);
+            decrease.setBackground(Color.RED);
+            inc_dec_panel_left.add(currentLevel);
+            inc_dec_panel_left.add(levelWindow);
+            inc_dec_panel_left.add(Box.createVerticalStrut(30));
+            inc_dec_panel_left.add(increase);
+            inc_dec_panel_left.add(decrease);
+            inc_dec_panel_left.add(Box.createVerticalStrut(30));
+>>>>>>> Stashed changes
             inc_dec_panel_left.add(selectClassToLevel);
             inc_dec_panel_left.add(classes);
             inc_dec_panel_left.add(Box.createVerticalStrut(20));
@@ -227,10 +245,17 @@ public class FrontEnd implements ActionListener{
             
             //Vigor stat elements panels:
             vigorStatContainer.setLayout(new BoxLayout(vigorStatContainer,BoxLayout.LINE_AXIS));
+<<<<<<< Updated upstream
 //            vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 50));
 //            vigorStatContainer.add(Box.createHorizontalGlue());
 //            vigorStatContainer.add(levelVigor);
 //            vigorStatContainer.add(Box.createHorizontalStrut(60));
+=======
+            vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+            vigorStatContainer.add(Box.createHorizontalStrut(20));
+//            vigorStatContainer.add(vigorStatLabel);
+            vigorStatContainer.add(levelVigor);
+>>>>>>> Stashed changes
             vigorStatContainer.add(vigorRadio);
 //            vigorStatContainer.add(vigorStatLabel);
 //            vigorStatContainer.add(Box.createHorizontalStrut(20));
@@ -240,8 +265,13 @@ public class FrontEnd implements ActionListener{
             mindStatContainer.setLayout(new BoxLayout(mindStatContainer,BoxLayout.LINE_AXIS));
 //            mindStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            mindStatContainer.add(mindStatLabel);
+<<<<<<< Updated upstream
 //            mindStatContainer.add(levelMind);
 //            mindStatContainer.add(Box.createHorizontalStrut(60));
+=======
+            mindStatContainer.add(Box.createHorizontalStrut(20));
+            mindStatContainer.add(levelMind);
+>>>>>>> Stashed changes
             mindStatContainer.add(mindRadio);
 //            mindStatContainer.add(Box.createHorizontalGlue());
 //            mindStatContainer.add(Box.createHorizontalStrut(13));
@@ -250,8 +280,13 @@ public class FrontEnd implements ActionListener{
             enduranceStatContainer.setLayout(new BoxLayout(enduranceStatContainer,BoxLayout.LINE_AXIS));
 //            enduranceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
 //            enduranceStatContainer.add(enduranceStatLabel);
+<<<<<<< Updated upstream
 //            enduranceStatContainer.add(levelEndurance);
 //            enduranceStatContainer.add(Box.createHorizontalStrut(12));
+=======
+            enduranceStatContainer.add(Box.createHorizontalStrut(20));
+            enduranceStatContainer.add(levelEndurance);
+>>>>>>> Stashed changes
             enduranceStatContainer.add(enduranceRadio);
 //            enduranceStatContainer.add(Box.createHorizontalStrut(1));
             
