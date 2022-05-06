@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -52,7 +53,7 @@ public class RuneFormula {
 
 
         }  
-    public int nextLevelCalc(double current_level){
+    public int nextLevelCalc(int current_level){
             runesForLevelUp = (int)((0.02*(Math.pow(current_level,3))) + (3.06*(Math.pow(current_level, 2)))
                     + (105.6*current_level) - 895);
             return runesForLevelUp;
@@ -71,3 +72,5 @@ public class RuneFormula {
           return total_runes;   
     }
 }
+
+
