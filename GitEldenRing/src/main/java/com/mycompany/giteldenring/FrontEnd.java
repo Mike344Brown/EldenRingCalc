@@ -302,7 +302,7 @@ public class FrontEnd implements ActionListener{
                 //This Switch statement passes all of the stat values into the text selection windows    
                 switch (comboBoxSelection) {
                     case "Samurai":
-                        levelWindow.setText(String.valueOf(12));
+                        
                         levelVigor.setText(String.valueOf(Samurai.vigor));
                         levelMind.setText(String.valueOf(Samurai.mind));
                         levelEndurance.setText(String.valueOf(Samurai.endurance));
@@ -313,7 +313,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Samurai.arcane));
                         break;
                     case "Prophet":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Prophet.vigor));
                         levelMind.setText(String.valueOf(Prophet.mind));
                         levelEndurance.setText(String.valueOf(Prophet.endurance));
@@ -324,7 +323,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Prophet.arcane));
                         break;
                     case "Warrior":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Warrior.vigor));
                         levelMind.setText(String.valueOf(Warrior.mind));
                         levelEndurance.setText(String.valueOf(Warrior.endurance));
@@ -335,7 +333,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Warrior.arcane));
                         break;
                     case "Hero":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Hero.vigor));
                         levelMind.setText(String.valueOf(Hero.mind));
                         levelEndurance.setText(String.valueOf(Hero.endurance));
@@ -346,7 +343,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Hero.arcane));
                         break;
                     case "Bandit":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Bandit.vigor));
                         levelMind.setText(String.valueOf(Bandit.mind));
                         levelEndurance.setText(String.valueOf(Bandit.endurance));
@@ -357,7 +353,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Bandit.arcane));
                         break;
                     case "Astrologer":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Astrologer.vigor));
                         levelMind.setText(String.valueOf(Astrologer.mind));
                         levelEndurance.setText(String.valueOf(Astrologer.endurance));
@@ -368,7 +363,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Astrologer.arcane));
                         break;
                     case "Prisoner":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Prisoner.vigor));
                         levelMind.setText(String.valueOf(Prisoner.mind));
                         levelEndurance.setText(String.valueOf(Prisoner.endurance));
@@ -379,7 +373,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Prisoner.arcane));
                         break;
                     case "Confessor":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Confessor.vigor));
                         levelMind.setText(String.valueOf(Confessor.mind));
                         levelEndurance.setText(String.valueOf(Confessor.endurance));
@@ -390,7 +383,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Confessor.arcane));
                         break;
                     case "Wretch":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Wretch.vigor));
                         levelMind.setText(String.valueOf(Wretch.mind));
                         levelEndurance.setText(String.valueOf(Wretch.endurance));
@@ -401,7 +393,6 @@ public class FrontEnd implements ActionListener{
                         levelArcane.setText(String.valueOf(Wretch.arcane));
                         break;
                     case "Vagabond":
-                        levelWindow.setText(String.valueOf(12));
                         levelVigor.setText(String.valueOf(Vagabond.vigor));
                         levelMind.setText(String.valueOf(Vagabond.mind));
                         levelEndurance.setText(String.valueOf(Vagabond.endurance));
@@ -415,7 +406,7 @@ public class FrontEnd implements ActionListener{
             });
             
             //levelWindow Action
-            //levelWindow.setText(String.valueOf(12));
+            levelWindow.setText(String.valueOf(12));
             //Add Button Press Event Listener
             increase.addActionListener((ActionEvent e) ->
             {
@@ -510,8 +501,7 @@ public class FrontEnd implements ActionListener{
                             Samurai.arcane++;
                             levelArcane.setText(String.valueOf(Samurai.arcane));
                         }
-                    //This is error handling done by **Nathan**    
-                else    
+                else
                         {
                             JFrame f;
                             f =new JFrame();
@@ -522,8 +512,6 @@ public class FrontEnd implements ActionListener{
 
             decrease.addActionListener((ActionEvent e) ->
             {
-                 //This is error handling done by **Nathan**    
-
                 if (levelInt == 12)
                    {
                         JFrame f;
@@ -622,8 +610,6 @@ public class FrontEnd implements ActionListener{
                                     Samurai.arcane--;
                                     levelArcane.setText(String.valueOf(Samurai.arcane));
                                 }
-                        
-                            //This is error handling done by **Nathan**    
                         else
                                 {
                                         
