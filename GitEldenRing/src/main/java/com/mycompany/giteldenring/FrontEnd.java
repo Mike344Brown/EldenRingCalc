@@ -1,3 +1,4 @@
+
                                                                                                                                         /*
                                                                                                                                          /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -6,9 +7,14 @@
 package com.mycompany.giteldenring;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.*;
 import javax.swing.*;
+
+
 /**
  *
  * @author craig
@@ -24,10 +30,18 @@ public class FrontEnd implements ActionListener{
         //Create instance variables for the increase/decrease buttons and the Level Output Window usng a box layout.
         JPanel inc_dec_panel_left = new JPanel();
         JPanel inc_dec_panel_center = new JPanel();
-        JTextField levelWindow = new JTextField();
+        JTextField levelWindow = new JTextField(2);
         JButton increase = new JButton("Increase");
         JButton decrease = new JButton("Decrease");
-        Font myFont = new Font("Courier", Font.BOLD, 20);
+        //Marvins Code--------------------------------------------------------------------------
+        Font segoeFont20 = new Font("Segoe UI", Font.BOLD, 20);
+        Font segoeFont50 = new Font("Segoe UI", Font.BOLD, 50);
+        Font segoeFont18 = new Font("Segoe UI", Font.BOLD, 18);
+        Font segoeFont16 = new Font("Segoe UI", Font.BOLD, 16);
+        Font segoeItalic12 = new Font("Segoe UI Semibold Italic", Font.PLAIN, 12);
+        Font segoeFont12 = new Font("Segoe UI", Font.BOLD, 12);
+        Font castellar26 = new Font("Castellar", Font.BOLD, 26);
+        Font stencil24 = new Font("Stencil", Font.BOLD, 24);
         
         //Build Arrays for character names.
         String [] names = {"", "Samurai", "Prophet", "Warrior", "Hero", "Bandit", "Astrologer", "Prisoner", "Confessor", "Wretch", "Vagabond"};
@@ -39,7 +53,7 @@ public class FrontEnd implements ActionListener{
         JLabel totalRunesSpent = new JLabel("Total Runes");
         JTextField runeTotalOutputWindow = new JTextField();
         
-        
+        JLabel title  = new JLabel("RUNE CALCULATOR");
         //Create instance variables for the stat labels.
         JLabel vigorStatLabel = new JLabel("Vigor");
         JLabel mindStatLabel = new JLabel("Mind");
@@ -49,6 +63,10 @@ public class FrontEnd implements ActionListener{
         JLabel intelligenceStatLabel = new JLabel("Intelligence");
         JLabel faithStatLabel = new JLabel("Faith");
         JLabel arcaneStatLabel = new JLabel("Arcane");
+        
+        
+        //Marvin
+        JLabel currentLevelLabel = new JLabel("Level");
         
         //Create instance variables to hold the text boxes for the levels
         JTextField levelVigor = new JTextField(2);
@@ -93,7 +111,12 @@ public class FrontEnd implements ActionListener{
         JPanel faithStatContainer = new JPanel();
         JPanel arcaneStatContainer = new JPanel();
         
-        
+        JPanel titleContainer = new JPanel();
+        JPanel levelContainer = new JPanel();
+        Dimension fieldSize = new Dimension(64, 31);
+        Dimension centerArea = new Dimension(40, 300);
+        Dimension conboBoxDimension = new Dimension(52, 22);
+        Dimension buttonDimension = new Dimension(55, 22);
         //level int
         public int levelInt = 12;
         
@@ -106,7 +129,11 @@ public class FrontEnd implements ActionListener{
            
             //Left Side Panel containing current level text window, inc dec buttons, and the combobox and cb label.
             inc_dec_panel_left.setLayout(new BoxLayout(inc_dec_panel_left,BoxLayout.PAGE_AXIS));
-            inc_dec_panel_left.add(currentLevel);
+            
+            //Marvins code 2 lines
+            increase.setBackground(Color.GREEN);
+            decrease.setBackground(Color.RED);
+            inc_dec_panel_left.add(levelContainer);
             inc_dec_panel_left.add(levelWindow);
             inc_dec_panel_left.add(Box.createVerticalStrut(30));
             inc_dec_panel_left.add(increase);
@@ -114,48 +141,124 @@ public class FrontEnd implements ActionListener{
             inc_dec_panel_left.add(Box.createVerticalStrut(30));
             inc_dec_panel_left.add(selectClassToLevel);
             inc_dec_panel_left.add(classes);
-            inc_dec_panel_left.add(Box.createVerticalStrut(30));
+            
+            //Marvins Code-------------------------------------------------------5 Lines
+            inc_dec_panel_left.add(Box.createVerticalStrut(20));
+            inc_dec_panel_left.add(increase); 
+            inc_dec_panel_left.add(Box.createVerticalStrut(20));
+            inc_dec_panel_left.add(decrease);
+            inc_dec_panel_left.add(Box.createVerticalStrut(40));
+            
+            
             inc_dec_panel_left.add(runesRequiredForNextLevel);
             inc_dec_panel_left.add(rrOutputWindow);
             rrOutputWindow.setEditable(false);
             inc_dec_panel_left.add(totalRunesSpent);
             inc_dec_panel_left.add(runeTotalOutputWindow);
-             inc_dec_panel_left.add(Box.createVerticalStrut(30));
+            
+            
+            //Marvins Code--------------------------------------------------6 Lines
+            inc_dec_panel_center.add(Box.createRigidArea(centerArea));
+            inc_dec_panel_left.setAlignmentX(Component.LEFT_ALIGNMENT);
+            levelContainer.setLayout(new BoxLayout(levelContainer,BoxLayout.PAGE_AXIS));
+            levelContainer.add(Box.createVerticalStrut(10));
+            currentLevelLabel.setFont(stencil24);
+            levelWindow.setFont(stencil24);
+            levelContainer.add(currentLevelLabel);
+            levelContainer.add(levelWindow);
             
              
             //Set font options
-            selectClassToLevel.setFont(new Font("Courier", Font.BOLD, 14));
-            currentLevel.setFont(new Font("Courier", Font.BOLD, 20));
+            //selectClassToLevel.setFont(new Font("Courier", Font.BOLD, 14));
+            //currentLevel.setFont(new Font("Courier", Font.BOLD, 20));
+            //MIKES CODE^^^
             
+            //Marvins Code
+            faithRadio.setFont(stencil24);
+            arcaneRadio.setFont(stencil24);
+            intelligenceRadio.setFont(stencil24);
+            vigorRadio.setFont(stencil24);
+            mindRadio.setFont(stencil24);
+            enduranceRadio.setFont(stencil24);
+            strengthRadio.setFont(stencil24);
+            dexterityRadio.setFont(stencil24);
+            
+            
+            //Text Alignment ***Marvin***
+            levelVigor.setHorizontalAlignment(JTextField.CENTER);
+            levelMind.setHorizontalAlignment(JTextField.CENTER);
+            levelEndurance.setHorizontalAlignment(JTextField.CENTER);
+            levelStrength.setHorizontalAlignment(JTextField.CENTER);
+            levelDexterity.setHorizontalAlignment(JTextField.CENTER);
+            levelIntelligence.setHorizontalAlignment(JTextField.CENTER);
+            levelFaith.setHorizontalAlignment(JTextField.CENTER);
+            levelArcane.setHorizontalAlignment(JTextField.CENTER);
+            selectClassToLevel.setHorizontalAlignment(JTextField.LEFT);
+            ((JLabel)classes.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+            levelWindow.setHorizontalAlignment(JTextField.CENTER);
+            rrOutputWindow.setHorizontalAlignment(JTextField.RIGHT);
+            runeTotalOutputWindow.setHorizontalAlignment(JTextField.RIGHT);
+                   
+            //Align radio buttons ***Marvin***
+            vigorStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            mindStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            enduranceStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            strengthStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            dexterityStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            intelligenceStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            faithStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            arcaneStatContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+            
+            increase.setAlignmentX(Component.LEFT_ALIGNMENT);
+            decrease.setAlignmentX(Component.LEFT_ALIGNMENT);
+            selectClassToLevel.setAlignmentX(Component.LEFT_ALIGNMENT);
+            selectClassToLevel.setMaximumSize(conboBoxDimension);
+            runesRequiredForNextLevel.setAlignmentX(Component.LEFT_ALIGNMENT);
+            totalRunesSpent.setAlignmentX(Component.LEFT_ALIGNMENT);
+//Marvins code block end--------------------------------------------------------------------------------------
+            
+
+//Title container Marvin-------------------------------------------------------
+            titleContainer.add(title);
             
             //Vigor stat elements panels:
+//            vigorStatContainer.setLayout(new BoxLayout(vigorStatContainer,BoxLayout.LINE_AXIS));
+//            vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
+//            vigorStatContainer.add(Box.createHorizontalGlue());
+////            vigorStatContainer.add(vigorStatLabel);
+//            vigorStatContainer.add(levelVigor);
+//            vigorStatContainer.add(vigorRadio);
+
+//Marvins Vigor Stat Element-----------------------------------------------------------------------
+
             vigorStatContainer.setLayout(new BoxLayout(vigorStatContainer,BoxLayout.LINE_AXIS));
             vigorStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-            vigorStatContainer.add(Box.createHorizontalGlue());
-//            vigorStatContainer.add(vigorStatLabel);
+            levelVigor.setFont(stencil24);
+            vigorStatContainer.add(Box.createHorizontalStrut(20));
             vigorStatContainer.add(levelVigor);
             vigorStatContainer.add(vigorRadio);
+            
             
             //Mind stat elements panels:
             mindStatContainer.setLayout(new BoxLayout(mindStatContainer,BoxLayout.LINE_AXIS));
             mindStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-//            mindStatContainer.add(mindStatLabel);
-            mindStatContainer.add(Box.createHorizontalStrut(80));
+            levelMind.setFont(stencil24);
+            mindStatContainer.add(Box.createHorizontalStrut(20));
             mindStatContainer.add(levelMind);
             mindStatContainer.add(mindRadio);
             
             //Endurance stat elements panels:
             enduranceStatContainer.setLayout(new BoxLayout(enduranceStatContainer,BoxLayout.LINE_AXIS));
             enduranceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-//            enduranceStatContainer.add(enduranceStatLabel);
-            enduranceStatContainer.add(Box.createHorizontalStrut(30));
+            levelEndurance.setFont(stencil24);
+            enduranceStatContainer.add(Box.createHorizontalStrut(20));
             enduranceStatContainer.add(levelEndurance);
             enduranceStatContainer.add(enduranceRadio);
             
             //Strength stat elements panels:
             strengthStatContainer.setLayout(new BoxLayout(strengthStatContainer,BoxLayout.LINE_AXIS));
             strengthStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-//            strengthStatContainer.add(strengthStatLabel);
+            levelStrength.setFont(stencil24);
             strengthStatContainer.add(Box.createHorizontalStrut(20));
             strengthStatContainer.add(levelStrength);
             strengthStatContainer.add(strengthRadio);
@@ -163,7 +266,7 @@ public class FrontEnd implements ActionListener{
             //Dexterity stat elements panels:
             dexterityStatContainer.setLayout(new BoxLayout(dexterityStatContainer,BoxLayout.LINE_AXIS));
             dexterityStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-//            dexterityStatContainer.add(dexterityStatLabel);
+            levelDexterity.setFont(stencil24);
             dexterityStatContainer.add(Box.createHorizontalStrut(20));
             dexterityStatContainer.add(levelDexterity);
             dexterityStatContainer.add(dexterityRadio);
@@ -171,7 +274,7 @@ public class FrontEnd implements ActionListener{
             //Intelligence stat elements panels:
             intelligenceStatContainer.setLayout(new BoxLayout(intelligenceStatContainer,BoxLayout.LINE_AXIS));
             intelligenceStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-//            intelligenceStatContainer.add(intelligenceStatLabel);
+            levelIntelligence.setFont(stencil24);
             intelligenceStatContainer.add(Box.createHorizontalStrut(20));
             intelligenceStatContainer.add(levelIntelligence);
             intelligenceStatContainer.add(intelligenceRadio);
@@ -179,7 +282,7 @@ public class FrontEnd implements ActionListener{
             //Faith stat elements panels:
             faithStatContainer.setLayout(new BoxLayout(faithStatContainer,BoxLayout.LINE_AXIS));
             faithStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-//            faithStatContainer.add(faithStatLabel);
+            levelFaith.setFont(stencil24);
             faithStatContainer.add(Box.createHorizontalStrut(20));
             faithStatContainer.add(levelFaith);
             faithStatContainer.add(faithRadio);
@@ -187,28 +290,29 @@ public class FrontEnd implements ActionListener{
             //Arcane stat elements panels:
             arcaneStatContainer.setLayout(new BoxLayout(arcaneStatContainer,BoxLayout.LINE_AXIS));
             arcaneStatLabel.setFont(new Font("Courier", Font.BOLD, 20));
-//            arcaneStatContainer.add(arcaneStatLabel);
+            levelArcane.setFont(stencil24);
             arcaneStatContainer.add(Box.createHorizontalStrut(20));
             arcaneStatContainer.add(levelArcane);
             arcaneStatContainer.add(arcaneRadio);
             
 
-            //Create stat level container ***Marvin***
+            //Create Stat Windows level container ***Marvin***
             statLevelContainer.setLayout(new BoxLayout(statLevelContainer, BoxLayout.PAGE_AXIS));
+            statLevelContainer.add(Box.createVerticalStrut(10));
             statLevelContainer.add(levelVigor);
-            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(Box.createVerticalStrut(25));
             statLevelContainer.add(levelMind);
-            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(Box.createVerticalStrut(25));
             statLevelContainer.add(levelEndurance);
-            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(Box.createVerticalStrut(25));
             statLevelContainer.add(levelStrength);
-            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(Box.createVerticalStrut(25));
             statLevelContainer.add(levelDexterity);
-            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(Box.createVerticalStrut(25));
             statLevelContainer.add(levelIntelligence);
-            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(Box.createVerticalStrut(25));
             statLevelContainer.add(levelFaith);
-            statLevelContainer.add(Box.createVerticalStrut(14));
+            statLevelContainer.add(Box.createVerticalStrut(25));
             statLevelContainer.add(levelArcane);
   
 
@@ -216,25 +320,25 @@ public class FrontEnd implements ActionListener{
             
             
 
-            //Add Stat elements to a vertically oriented container
+            //Add Radio Buttons and Labels elements to a vertically oriented container
             radioButtonContainer.setLayout(new BoxLayout(radioButtonContainer,BoxLayout.PAGE_AXIS));
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(5));
             radioButtonContainer.add(vigorStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(20));
             radioButtonContainer.add(mindStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(20));
             radioButtonContainer.add(enduranceStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(20));
             radioButtonContainer.add(strengthStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(20));
             radioButtonContainer.add(dexterityStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(20));
             radioButtonContainer.add(intelligenceStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(20));
             radioButtonContainer.add(faithStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            radioButtonContainer.add(Box.createVerticalStrut(20));
             radioButtonContainer.add(arcaneStatContainer);
-            radioButtonContainer.add(Box.createVerticalStrut(10));
+            //radioButtonContainer.add(Box.createVerticalStrut(40));
             
             //Add action commands to radio buttons ***Marvin***
             vigorRadio.setActionCommand("Vigor");
@@ -264,15 +368,15 @@ public class FrontEnd implements ActionListener{
             
             
             
-            //Add Radio Button font ***Marvin***
-            vigorRadio.setFont(myFont);
-            mindRadio.setFont(myFont);
-            enduranceRadio.setFont(myFont);
-            strengthRadio.setFont(myFont);
-            dexterityRadio.setFont(myFont);
-            intelligenceRadio.setFont(myFont);
-            faithRadio.setFont(myFont);
-            arcaneRadio.setFont(myFont);
+//            //Add Radio Button font ***Marvin***
+//            vigorRadio.setFont(myFont);
+//            mindRadio.setFont(myFont);
+//            enduranceRadio.setFont(myFont);
+//            strengthRadio.setFont(myFont);
+//            dexterityRadio.setFont(myFont);
+//            intelligenceRadio.setFont(myFont);
+//            faithRadio.setFont(myFont);
+//            arcaneRadio.setFont(myFont);
             
             //Add buttons to button group ***Marvin***
             buttonGroup.add(vigorRadio);
@@ -286,19 +390,21 @@ public class FrontEnd implements ActionListener{
             
             
             //Add panel containers to the frame
+            //container.add(levelContainer, BorderLayout.NORTH);
             container.add(inc_dec_panel_left, BorderLayout.WEST);
+            
             container.add(inc_dec_panel_center, BorderLayout.CENTER);
-            container.add(statLevelContainer, BorderLayout.EAST);
+            
             
             container.add(radioButtonContainer, BorderLayout.EAST);
-            
+            container.add(statLevelContainer, BorderLayout.EAST);
           
             //Add container to frame
             layer_1_container.add(container);
             layer_1_container.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             
             
-            layer_1_container.setSize(640,480);
+            layer_1_container.setSize(700,500);
             layer_1_container.setVisible(true);
             
         
@@ -713,4 +819,5 @@ public class FrontEnd implements ActionListener{
     
     
   
+
 }
